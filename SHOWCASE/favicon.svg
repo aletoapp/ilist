@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background arredondado -->
+  <rect width="64" height="64" rx="14" fill="#060B14"/>
+  <!-- Borda sutil -->
+  <rect width="64" height="64" rx="14" fill="none" stroke="#FF9900" stroke-width="1.5" opacity="0.25"/>
+
+  <!-- Play triangle — levemente à esquerda do centro -->
+  <polygon points="8,14 8,50 36,32" fill="#FF9900"/>
+
+  <!-- 3 barras mini à direita -->
+  <rect x="40" y="17" width="16" height="5" rx="2.5" fill="#FF9900"/>
+  <rect x="40" y="27" width="11" height="5" rx="2.5" fill="#FF9900" opacity="0.58"/>
+  <rect x="40" y="37" width="7"  height="5" rx="2.5" fill="#FF9900" opacity="0.3"/>
+</svg>

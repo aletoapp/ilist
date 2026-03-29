@@ -1,0 +1,464 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── SEO Principal ── -->
+<title>iList — você lista, o show é por nossa conta!</title>
+<meta name="description" content="Player de YouTube com categorias, timer, 4 modos loop e foco. Sem distrações.">
+<meta name="keywords"    content="youtube sem ads, player youtube, youtube foco, playlist youtube, ilist">
+<meta name="author"      content="Alexandre Torres">
+<link rel="canonical"    href="https://alexandretorres.com.br/ilist/player">
+
+<!-- ── Open Graph (Facebook / WhatsApp / LinkedIn) ── -->
+<meta property="og:type"              content="website">
+<meta property="og:site_name"         content="iList">
+<meta property="og:title"             content="iList — Player YouTube sem distrações">
+<meta property="og:description"       content="Organize, ouça, foque. Sem algoritmo te puxando.">
+<meta property="og:url"               content="https://alexandretorres.com.br/ilist/player">
+<meta property="og:locale"            content="pt_BR">
+<meta property="og:image"             content="https://alexandretorres.com.br/ilist/assets/img/og-image.jpg">
+<meta property="og:image:secure_url"  content="https://alexandretorres.com.br/ilist/assets/img/og-image.jpg">
+<meta property="og:image:type"        content="image/jpeg">
+<meta property="og:image:width"       content="1200">
+<meta property="og:image:height"      content="630">
+<meta property="og:image:alt"         content="iList — Player YouTube organizado por categorias">
+
+<!-- ── Twitter Card ── -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:site"        content="@alementoria">
+<meta name="twitter:creator"     content="@alementoria">
+<meta name="twitter:title"       content="iList — Player YouTube">
+<meta name="twitter:description" content="Categorias, timer, foco. Grátis.">
+<meta name="twitter:image"       content="https://alexandretorres.com.br/ilist/assets/img/og-image.jpg">
+<meta name="twitter:image:alt"   content="iList — Player YouTube">
+
+<!-- ── Schema.org Structured Data ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "iList",
+  "url": "https://alexandretorres.com.br/ilist/player",
+  "description": "Player de YouTube com categorias, timer, 4 modos loop e foco. Sem distrações.",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "pt-BR",
+  "author": {
+    "@type": "Person",
+    "name": "Alexandre Torres",
+    "url": "https://alexandretorres.com.br"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "BRL"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "127"
+  }
+}
+</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     BOX PRINCIPAL
+═══════════════════════════════════ -->
+<div class="box">
+
+    <!-- Modo escuro wrapper (preenchido por app.js) -->
+    <div id="darkModeBtnWrapper"></div>
+
+    <!-- Título -->
+    <h3 class="app-title">
+        i<span class="brand-accent">List</span>
+        <span class="brand-tagline">— você lista, o show é por nossa conta</span>
+    </h3>
+
+    <!-- ── PASSO 1: Criar / selecionar categoria ── -->
+    <div class="action-row">
+        <button class="btn-criar-categoria" id="openCategoriesBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 15.09 14 c 0.18 -0.98 0.65 -1.74 1.41 -2.5 A 4.65 4.65 0 0 0 18 8 A 6 6 0 0 0 6 8 c 0 1 0.23 2.23 1.5 3.5 A 4.61 4.61 0 0 1 8.91 14"/>
+                <line x1="9" y1="18" x2="15" y2="18"/>
+                <line x1="10" y1="21" x2="14" y2="21"/>
+            </svg>
+            <span class="btn-label">Criar Categoria</span>
+        </button>
+    </div>
+
+    <!-- ── PASSO 2: Input inteligente único ── -->
+    <div class="url-input-area">
+        <div class="url-input-row">
+            <div class="url-input-wrapper">
+                <span class="url-input-icon" id="urlInputIcon">🔗</span>
+                <input
+                    id="urlInput"
+                    type="text"
+                    class="url-input-field"
+                    placeholder="Cole um link ou busque por nome..."
+                    autocomplete="off"
+                >
+            </div>
+            <button id="addBtn" class="url-search-btn" title="Buscar / Adicionar (Enter)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Botão Pix oculto (compatibilidade app.js) -->
+    <button id="copiarPixBtn" style="display:none;"></button>
+
+
+    <!-- ═══ MODAL: Gerenciar Categorias ═══ -->
+    <div id="categoriesModal" class="modal" onclick="closeModalOnOutsideClick(event, 'categoriesModal')">
+        <div class="modal-content category-modal-content" onclick="event.stopPropagation()">
+            <h3 style="margin-top:0;">📁 Gerenciar Categorias</h3>
+
+            <div class="category-create-section">
+                <input type="text" id="newCategoryInput" class="category-input" placeholder="Nome da nova categoria" maxlength="25">
+                <div class="color-selector">
+                    <label style="font-size:12px; color:var(--muted); margin-bottom:8px; display:block; font-family:var(--mono); text-transform:uppercase; letter-spacing:1px;">Cor da categoria:</label>
+                    <div class="color-grid" id="colorGrid"></div>
+                </div>
+                <button id="createCategoryBtn" class="btn-primary" style="width:100%; margin-top:10px; margin-left:0;">✓ Criar Categoria</button>
+            </div>
+
+            <hr style="border:0; height:1px; background:rgba(255,255,255,0.06); margin:20px 0;">
+
+            <div class="categories-list-section">
+                <h4 style="font-size:12px; color:var(--muted); margin-bottom:10px; font-family:var(--mono); text-transform:uppercase; letter-spacing:1px;">Categorias existentes:</h4>
+                <div id="categoriesList"></div>
+            </div>
+
+            <button class="close-btn" id="closeCategoriesBtn">Fechar</button>
+        </div>
+    </div>
+
+
+    <!-- ═══ MODAL: Editar Categoria ═══ -->
+    <div id="editCategoryModal" class="modal" onclick="closeModalOnOutsideClick(event, 'editCategoryModal')">
+        <div class="modal-content category-modal-content" onclick="event.stopPropagation()">
+            <h3 style="margin-top:0;">✎ Editar Categoria</h3>
+            <input type="text" id="editCategoryInput" class="category-input" placeholder="Novo nome" maxlength="25">
+            <div class="color-selector">
+                <label style="font-size:12px; color:var(--muted); margin-bottom:8px; display:block; font-family:var(--mono); text-transform:uppercase; letter-spacing:1px;">Nova cor:</label>
+                <div class="color-grid" id="editColorGrid"></div>
+            </div>
+            <button id="saveEditCategoryBtn" class="btn-primary" style="width:100%; margin-top:15px; margin-left:0;">Salvar Alterações</button>
+            <button class="close-btn" id="closeEditCategoryBtn">Cancelar</button>
+        </div>
+    </div>
+
+
+    <!-- ═══ MODAL: Escolher Categoria ao adicionar vídeo ═══ -->
+    <div id="categorySelectModal" class="modal" onclick="closeModalOnOutsideClick(event, 'categorySelectModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h3 style="margin-top:0;">📂 Escolha a Categoria</h3>
+            <p style="font-size:13px; color:var(--muted); margin-bottom:4px;">Onde deseja salvar os vídeos?</p>
+            <div id="categorySelectList" style="display:flex; flex-direction:column; gap:10px; margin:15px 0;"></div>
+            <button class="close-btn" id="closeCategorySelectBtn">Cancelar</button>
+        </div>
+    </div>
+
+
+    <!-- ═══ MODAL: Confirmar apagar tudo ═══ -->
+    <div id="confirmModal" class="modal" onclick="closeModalOnOutsideClick(event, 'confirmModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <h3>⚠️ Apagar toda a lista?</h3>
+            <p style="font-size:13px; color:var(--muted); margin-top:8px; line-height:1.6;">Esta ação não pode ser desfeita. Todos os vídeos serão removidos.</p>
+            <div class="modal-buttons" style="flex-direction:row; justify-content:center; gap:12px; margin-top:20px;">
+                <button id="clearYesBtn" style="background:var(--red); color:#fff; border:none; flex:1; margin-left:0;">Sim, apagar tudo</button>
+                <button class="close-btn" id="clearNoBtn" style="flex:1;">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ═══ PLAYER ═══ -->
+    <div id="player"></div>
+
+    <!-- ═══ CONTROLES DO PLAYER ═══ -->
+    <div class="player-controls-advanced">
+
+        <!-- Barra de progresso -->
+        <div class="progress-container" id="progressContainer">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-times">
+                <span id="currentTime">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <!-- Controles principais -->
+        <div class="main-controls">
+            <button class="control-btn" onclick="previousVideo()" title="Anterior (Ctrl+P)">⏮</button>
+            <button class="control-btn" onclick="skipBackward(10)" title="Voltar 10s (←)">⏪</button>
+            <button class="control-btn control-btn-primary" onclick="player && player.playVideo()" title="Play/Pause (Espaço)">▶️</button>
+            <button class="control-btn" onclick="skipForward(10)" title="Avançar 10s (→)">⏩</button>
+            <button class="control-btn" onclick="nextVideo()" title="Próximo (Ctrl+N)">⏭</button>
+        </div>
+
+        <!-- Controles secundários — GRUPO 1: reprodução | GRUPO 2: utilidades -->
+        <div class="secondary-controls">
+            <!-- Grupo 1: reprodução -->
+            <button class="control-btn-small btn-tutoriais" onclick="window.tutorialSidebar && window.tutorialSidebar.openSidebar()" title="Abrir tutoriais (Ctrl+H)">🎓 Tutoriais</button>
+
+            <button class="control-btn-small" id="loopModeBtn" onclick="toggleLoopMode()" title="Modo de repetição (Ctrl+L)">🔂 Normal</button>
+
+            <div class="speed-control">
+                <select id="speedSelect" onchange="changePlaybackSpeed(parseFloat(this.value))" class="speed-select">
+                    <option value="0.25">0.25x</option>
+                    <option value="0.5">0.5x</option>
+                    <option value="0.75">0.75x</option>
+                    <option value="1" selected>1x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="1.75">1.75x</option>
+                    <option value="2">2x</option>
+                </select>
+            </div>
+
+            <!-- Divisor visual -->
+            <div class="controls-divider"></div>
+
+            <!-- Grupo 2: utilidades -->
+            <div class="timer-control-inline">
+                <select id="timerSelect" onchange="handleTimerSelect(this)" class="timer-select">
+                    <option value="0">⏱ Off</option>
+                    <option value="15">15min</option>
+                    <option value="30">30min</option>
+                    <option value="45">45min</option>
+                    <option value="60">1h</option>
+                    <option value="90">1h30</option>
+                    <option value="120">2h</option>
+                </select>
+                <span id="timerDisplay" style="display:none;"></span>
+            </div>
+
+            <button class="control-btn-small btn-oled" onclick="ativarModoEscuro()" title="Modo OLED — tela preta, economia de bateria">🌙 OLED</button>
+
+            <button class="control-btn-small" onclick="document.getElementById('apiKeyChangeModal').style.display='flex'" title="Configurar API Key do YouTube">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>
+                API Key
+            </button>
+        </div>
+
+        <!-- Countdown timer -->
+        <div id="timerCountdown" style="display:none; font-size:11px; color:var(--green); text-align:center; margin-top:8px; font-weight:700; letter-spacing:0.5px; font-family:var(--mono);"></div>
+
+    </div><!-- /player-controls-advanced -->
+
+
+    <!-- ═══ AÇÕES DA PLAYLIST (3 zonas) ═══ -->
+    <div class="playlist-zone">
+
+        <!-- Zona 1: reprodução -->
+        <div class="zone-play">
+            <button id="playAllBtn" class="btn-play-all">▶ Reproduzir tudo</button>
+            <button id="playSelectedBtn" class="btn-play-selected">▶ Reproduzir Selecionados</button>
+        </div>
+
+        <hr class="grad-divider">
+
+        <!-- Zona 2: seleção -->
+        <div class="zone-select">
+            <button id="selectAllBtn" class="btn-select-all">☑ Selecionar Todos</button>
+        </div>
+
+        <hr class="grad-divider">
+
+        <!-- Zona 3: perigo — ações destrutivas -->
+        <div class="zone-danger">
+            <div class="zone-danger-label">⚠ zona de risco</div>
+            <button id="deleteSelectedBtn" class="btn-delete-selected">🗑 Apagar Selecionados</button>
+            <button id="confirmClearBtn" class="btn-clear-all">✕ Apagar Tudo</button>
+        </div>
+
+    </div><!-- /playlist-zone -->
+
+    <hr class="grad-divider">
+
+    <!-- ═══ UTILIDADES ═══ -->
+    <div class="utility-section">
+        <button id="installAppBtn" class="btn-install-pwa" style="display:none;">
+            📲 Instalar iList como App
+        </button>
+
+        <div class="utility-label">💾 Backup</div>
+        <div class="backup-row">
+            <button id="exportBackupBtn" class="btn-backup" style="background:var(--green); color:#fff;">
+                📤 Exportar
+            </button>
+            <button id="importBackupBtn" class="btn-backup" style="background:#3b82f6; color:#fff;">
+                📥 Importar
+            </button>
+        </div>
+    </div>
+
+    <hr class="grad-divider">
+
+    <!-- ═══ RODAPÉ ═══ -->
+    <div class="app-footer">
+        <span class="copy">
+            © 2026 iList &nbsp;·&nbsp;
+            <strong>Alexandre Nunes Torres</strong><br>
+            <span class="copy-accent">@alementoria</span>
+        </span>
+        <button id="instagramFollowBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF66CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+            @alementoria
+        </button>
+    </div>
+
+</div><!-- /box -->
+
+
+<!-- ═══════════════════════════════════
+     SIDEBAR: PLAYLIST
+═══════════════════════════════════ -->
+<div class="playlist">
+
+    <!-- Filtro de categorias -->
+    <div class="category-filters" id="categoryFilters"></div>
+
+    <hr class="grad-divider">
+
+    <!-- Container dos itens (app.js renderiza aqui) -->
+    <div id="playlistContainer">
+        <!-- Estado vazio — mostrado até app.js popular -->
+        <div class="playlist-empty-state" id="emptyState">
+            <span class="empty-icon">🎬</span>
+            <span class="empty-title">Sua lista está vazia</span>
+            <span class="empty-hint">Cole um link do YouTube no campo ao lado e pressione <strong>Enter</strong> para começar.</span>
+        </div>
+    </div>
+
+    <hr class="grad-divider">
+
+    <!-- Controles da sidebar (mantidos para compatibilidade com app.js) -->
+    <div class="playlist-controls" style="display:none;" id="sidebarControls">
+        <button id="sidebarPlayAllBtn">▶ Reproduzir tudo</button>
+        <button id="sidebarSelectAllBtn">☑ Selecionar Todos</button>
+    </div>
+
+</div><!-- /playlist -->
+
+
+<!-- ═══════════════════════════════════
+     OVERLAYS & MODAIS GLOBAIS
+═══════════════════════════════════ -->
+
+<!-- Dark Mode Overlay -->
+<div id="darkOverlay">
+    <div id="lamp">💡</div>
+    <span id="turnOn">acender a luz</span>
+</div>
+
+
+<!-- Modal: API Key -->
+<div id="apiKeyChangeModal"
+     onclick="if(event.target===this)this.style.display='none'"
+     style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:10100; align-items:center; justify-content:center; backdrop-filter:blur(6px);">
+    <div onclick="event.stopPropagation()"
+         style="background:#0d1b2a; border:1px solid rgba(255,153,0,0.15); border-radius:18px; padding:28px; width:90%; max-width:400px; box-shadow:0 24px 64px rgba(0,0,0,0.7); position:relative; overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#06b6d4,#FF9900,#ef4444);"></div>
+        <h3 style="margin:0 0 6px; color:#fff; font-size:17px; font-weight:800; font-family:'Syne',sans-serif; display:flex; align-items:center; gap:8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>
+            API Key do YouTube
+        </h3>
+        <p style="font-size:12px; color:#64748b; margin:0 0 16px; font-family:'JetBrains Mono',monospace; line-height:1.6;">Necessária para buscar vídeos por canal. <a href="#" style="color:#FF9900; text-decoration:none;">Ver tutorial →</a></p>
+        <input id="apiKeyChangeInput" type="password"
+               placeholder="Cole sua API Key aqui..."
+               autocomplete="new-password"
+               style="width:100%; box-sizing:border-box; background:#060B14; border:1.5px solid #1e293b; border-radius:8px; color:#f1f5f9; font-size:14px; font-family:'Syne',sans-serif; padding:12px 14px; outline:none; margin-bottom:14px; transition:border-color 0.2s;">
+        <div style="display:flex; gap:8px;">
+            <button id="apiKeyChangeOkBtn"
+                    style="flex:1; background:linear-gradient(135deg,#FF9900,#f59e0b); color:#000; border:none; border-radius:8px; padding:12px; font-size:14px; font-weight:800; font-family:'Syne',sans-serif; cursor:pointer; margin-left:0;">
+                ✓ Salvar
+            </button>
+            <button onclick="document.getElementById('apiKeyChangeModal').style.display='none'"
+                    style="flex:1; background:#1e293b; color:#94a3b8; border:1px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px; font-size:14px; font-family:'Syne',sans-serif; cursor:pointer; margin-left:0;">
+                Cancelar
+            </button>
+        </div>
+        <div id="apiKeyChangeMsg" style="display:none; margin-top:10px; font-size:12px; color:#10b981; text-align:center; font-family:'JetBrains Mono',monospace;">✅ Chave salva com sucesso!</div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════ -->
+<script src="assets/js/categories.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/player.js"></script>
+<script src="assets/js/ad-blocker.js"></script>
+<script src="assets/js/pwa.js"></script>
+<script src="assets/js/search-advanced.js"></script>
+<script src="assets/js/backup.js"></script>
+<script src="assets/js/sidebar.js"></script>
+<script src="assets/js/equalizer.js"></script>
+
+<script>
+    /* Fechar modal ao clicar fora */
+    function closeModalOnOutsideClick(event, modalId) {
+        if (event.target.id === modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+    }
+
+    /* Esconder empty state quando há itens na playlist */
+    function syncEmptyState() {
+        const container = document.getElementById('playlistContainer');
+        const empty = document.getElementById('emptyState');
+        if (!container || !empty) return;
+        const hasItems = container.querySelectorAll('.playlist-item').length > 0;
+        empty.style.display = hasItems ? 'none' : 'flex';
+    }
+
+    /* Observar mudanças na playlist para atualizar empty state */
+    document.addEventListener('DOMContentLoaded', function () {
+
+        /* API Key modal */
+        document.getElementById('apiKeyChangeOkBtn').addEventListener('click', function () {
+            const input = document.getElementById('apiKeyChangeInput');
+            const msg   = document.getElementById('apiKeyChangeMsg');
+            const key   = input.value.trim();
+            if (!key) { input.style.borderColor = '#ef4444'; return; }
+            localStorage.setItem('youtube_api_key', key);
+            input.value = '';
+            input.style.borderColor = '#10b981';
+            msg.style.display = 'block';
+            setTimeout(function () {
+                document.getElementById('apiKeyChangeModal').style.display = 'none';
+                msg.style.display = 'none';
+                input.style.borderColor = '#1e293b';
+            }, 1500);
+        });
+
+        document.getElementById('apiKeyChangeInput').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') document.getElementById('apiKeyChangeOkBtn').click();
+        });
+
+        /* Observar playlistContainer */
+        const container = document.getElementById('playlistContainer');
+        if (container) {
+            const mo = new MutationObserver(syncEmptyState);
+            mo.observe(container, { childList: true, subtree: true });
+            syncEmptyState();
+        }
+    });
+</script>
+<script src="assets/js/input-patch.js"></script>
+<script src="assets/js/onboarding.js"></script>
+
+</body>
+</html>

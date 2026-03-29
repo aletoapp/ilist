@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DyList — Brand Assets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #060B14;
+      --s1:     #0B1623;
+      --s2:     #0d1b2a;
+      --s3:     #1e293b;
+      --border: rgba(255,255,255,0.07);
+      --accent: #FF9900;
+      --cyan:   #06b6d4;
+      --gold:   #C7A96E;
+      --text:   #f1f5f9;
+      --muted:  #94a3b8;
+      --muted2: #64748b;
+      --mono:   'JetBrains Mono', monospace;
+      --sans:   'Syne', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      padding: 72px 48px 120px;
+      overflow-x: hidden;
+    }
+
+    /* Grain */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.4;
+    }
+
+    .wrap { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+    /* ── HEADER ── */
+    header { margin-bottom: 80px; }
+    .header-label {
+      font-size: 10px; font-family: var(--mono);
+      color: var(--accent); text-transform: uppercase;
+      letter-spacing: 3.5px; margin-bottom: 14px;
+    }
+    header h1 {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 800; letter-spacing: -2px;
+      line-height: 1.08; margin-bottom: 12px;
+    }
+    header p {
+      font-family: var(--mono); font-size: 14px;
+      color: var(--muted); max-width: 480px; line-height: 1.8;
+    }
+
+    /* ── SECTION TITLE ── */
+    .sec-label {
+      font-size: 10px; font-family: var(--mono);
+      color: var(--muted2); text-transform: uppercase;
+      letter-spacing: 3px; margin-bottom: 32px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .sec-label::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── LOGO GRID ── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .logo-card {
+      background: var(--s1);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .logo-card:hover { border-color: rgba(255,255,255,0.13); transform: translateY(-3px); }
+
+    .logo-preview {
+      padding: 36px 28px;
+      display: flex; align-items: center; justify-content: center;
+      border-bottom: 1px solid var(--border);
+      min-height: 160px;
+      position: relative;
+    }
+
+    .logo-preview img { width: 100%; max-width: 280px; }
+
+    .logo-preview .on-light {
+      position: absolute; bottom: 10px; right: 14px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px; padding: 4px 10px;
+      font-size: 10px; font-family: var(--mono);
+      color: var(--muted2); cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .logo-preview .on-light:hover { background: rgba(255,255,255,0.12); color: var(--text); }
+
+    .logo-meta { padding: 24px; }
+
+    .logo-concept {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 4px 12px; border-radius: 100px;
+      font-size: 10px; font-family: var(--mono); font-weight: 600;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .logo-concept.orange { background: rgba(255,153,0,0.1); color: var(--accent); }
+    .logo-concept.cyan   { background: rgba(6,182,212,0.1); color: var(--cyan); }
+    .logo-concept.gold   { background: rgba(199,169,110,0.12); color: var(--gold); }
+
+    .logo-name {
+      font-size: 17px; font-weight: 800;
+      letter-spacing: -0.5px; margin-bottom: 6px;
+    }
+
+    .logo-desc {
+      font-size: 12px; font-family: var(--mono);
+      color: var(--muted); line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .logo-dl {
+      display: inline-flex; align-items: center; gap: 6px;
+      text-decoration: none; font-size: 12px; font-weight: 700;
+      font-family: var(--mono); padding: 9px 16px;
+      border-radius: 8px; border: 1px solid var(--border);
+      color: var(--muted); transition: all 0.2s;
+    }
+    .logo-dl:hover { color: var(--text); border-color: rgba(255,255,255,0.18); }
+
+    /* ── FAVICON GRID ── */
+    .fav-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+
+    .fav-card {
+      background: var(--s1);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.25s;
+    }
+    .fav-card:hover { border-color: rgba(255,255,255,0.13); }
+
+    .fav-sizes {
+      padding: 28px;
+      display: flex; align-items: flex-end; justify-content: center;
+      gap: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fav-size { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .fav-size span { font-size: 9px; font-family: var(--mono); color: var(--muted2); }
+
+    .fav-surfaces {
+      display: flex;
+    }
+    .fav-surf {
+      flex: 1; padding: 20px; display: flex;
+      align-items: center; justify-content: center;
+    }
+    .fav-surf.dark  { background: #060B14; }
+    .fav-surf.light { background: #F8F7F4; }
+
+    .fav-meta { padding: 20px 24px; }
+    .fav-meta .logo-concept { margin-bottom: 8px; }
+    .fav-meta .logo-name { font-size: 15px; margin-bottom: 4px; }
+    .fav-meta .logo-desc { margin-bottom: 16px; }
+
+    /* ── USAGE SECTION ── */
+    .usage-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .usage-card {
+      background: var(--s1); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px;
+    }
+    .usage-title {
+      font-size: 12px; font-family: var(--mono); font-weight: 600;
+      color: var(--muted2); text-transform: uppercase;
+      letter-spacing: 1.5px; margin-bottom: 10px;
+    }
+    .usage-val {
+      font-size: 13px; font-family: var(--mono); color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .color-swatch {
+      width: 12px; height: 12px; border-radius: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .logo-grid, .fav-grid { grid-template-columns: 1fr; }
+      .usage-grid { grid-template-columns: 1fr; }
+      body { padding: 48px 24px 80px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-label">Brand Identity System</div>
+    <h1>DyList<br><span style="color:var(--accent)">Logo &amp; Favicon</span></h1>
+    <p>Três conceitos de identidade visual. Cada um com uma DNA diferente — funcional, técnico, e desenvolvedor. Escolha o que melhor representa o posicionamento da marca.</p>
+  </header>
+
+  <!-- LOGOS -->
+  <div class="sec-label">Logos — formatos horizontais (300 × 76px)</div>
+
+  <div class="logo-grid">
+
+    <!-- LOGO 1 -->
+    <div class="logo-card">
+      <div class="logo-preview" id="prev1" style="background:#060B14">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 76" style="width:100%;max-width:280px">
+          <polygon points="8,15 8,61 48,38" fill="#FF9900"/>
+          <rect x="56" y="21" width="26" height="6" rx="3" fill="#FF9900"/>
+          <rect x="56" y="33" width="18" height="6" rx="3" fill="#FF9900" opacity="0.58"/>
+          <rect x="56" y="45" width="11" height="6" rx="3" fill="#FF9900" opacity="0.28"/>
+          <text font-family="'Syne','Arial Black',sans-serif" font-weight="800" font-size="40" y="52" x="84">
+            <tspan fill="#FFFFFF">Dy</tspan><tspan fill="#FF9900">list</tspan>
+          </text>
+        </svg>
+        <button class="on-light" onclick="toggleBg('prev1', this)">Fundo claro</button>
+      </div>
+      <div class="logo-meta">
+        <div class="logo-concept orange">Conceito 01 — Play Stack</div>
+        <div class="logo-name">Funcional</div>
+        <p class="logo-desc">
+          O triângulo de play e as barras descendentes formam uma linguagem visual única: você dá play, a lista aparece. Direto. Sem metáfora forçada.
+        </p>
+        <a href="dylist-logo-1-playstack.svg" download class="logo-dl">↓ Download SVG</a>
+      </div>
+    </div>
+
+    <!-- LOGO 2 -->
+    <div class="logo-card">
+      <div class="logo-preview" id="prev2" style="background:#060B14">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 76" style="width:100%;max-width:280px">
+          <path d="M5,38 L15,38 L21,15 L27,61 L33,15 L39,61 L45,38 L63,38"
+                fill="none" stroke="#06b6d4" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="63" cy="38" r="3.5" fill="#06b6d4" opacity="0.85"/>
+          <text font-family="'Syne','Arial Black',sans-serif" font-weight="800" font-size="40" y="52" x="84">
+            <tspan fill="#FFFFFF">Dy</tspan><tspan fill="#06b6d4">list</tspan>
+          </text>
+        </svg>
+        <button class="on-light" onclick="toggleBg('prev2', this)">Fundo claro</button>
+      </div>
+      <div class="logo-meta">
+        <div class="logo-concept cyan">Conceito 02 — Signal</div>
+        <div class="logo-name">Técnico</div>
+        <p class="logo-desc">
+          Sinal puro. O pulso ECG representa a ideia central: DyList está vivo, em execução, sem ruído. A linha plana antes e depois do pulso é silêncio intencional.
+        </p>
+        <a href="dylist-logo-2-signal.svg" download class="logo-dl">↓ Download SVG</a>
+      </div>
+    </div>
+
+    <!-- LOGO 3 -->
+    <div class="logo-card">
+      <div class="logo-preview" id="prev3" style="background:#060B14">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 76" style="width:100%;max-width:280px">
+          <rect x="7"  y="11" width="4"  height="54" rx="1.5" fill="#C7A96E"/>
+          <rect x="7"  y="11" width="14" height="4"  rx="1.5" fill="#C7A96E"/>
+          <rect x="7"  y="61" width="14" height="4"  rx="1.5" fill="#C7A96E"/>
+          <rect x="55" y="11" width="4"  height="54" rx="1.5" fill="#C7A96E"/>
+          <rect x="45" y="11" width="14" height="4"  rx="1.5" fill="#C7A96E"/>
+          <rect x="45" y="61" width="14" height="4"  rx="1.5" fill="#C7A96E"/>
+          <polygon points="22,24 22,52 42,38" fill="#C7A96E"/>
+          <text font-family="'JetBrains Mono','Courier New',monospace" font-weight="700" font-size="34" y="51" x="80">
+            <tspan fill="#FFFFFF">Dy</tspan><tspan fill="#C7A96E">List</tspan>
+          </text>
+        </svg>
+        <button class="on-light" onclick="toggleBg('prev3', this)">Fundo claro</button>
+      </div>
+      <div class="logo-meta">
+        <div class="logo-concept gold">Conceito 03 — Bracket</div>
+        <div class="logo-name">Desenvolvedor</div>
+        <p class="logo-desc">
+          Colchetes de código abraçam um play. Tipografia monospace. Ouro — não laranja — para distinguir quem constrói de quem consome. DNA de dev do primeiro ao último pixel.
+        </p>
+        <a href="dylist-logo-3-bracket.svg" download class="logo-dl">↓ Download SVG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FAVICONS -->
+  <div class="sec-label">Favicons — ícone de marca (64 × 64px)</div>
+
+  <div class="fav-grid">
+
+    <!-- FAV 1 -->
+    <div class="fav-card">
+      <div class="fav-sizes">
+        <div class="fav-size">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#FF9900" stroke-width="1.5" opacity="0.25"/>
+            <polygon points="8,14 8,50 36,32" fill="#FF9900"/>
+            <rect x="40" y="17" width="16" height="5" rx="2.5" fill="#FF9900"/>
+            <rect x="40" y="27" width="11" height="5" rx="2.5" fill="#FF9900" opacity="0.58"/>
+            <rect x="40" y="37" width="7"  height="5" rx="2.5" fill="#FF9900" opacity="0.3"/>
+          </svg>
+          <span>64px</span>
+        </div>
+        <div class="fav-size">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#FF9900" stroke-width="1.5" opacity="0.25"/>
+            <polygon points="8,14 8,50 36,32" fill="#FF9900"/>
+            <rect x="40" y="17" width="16" height="5" rx="2.5" fill="#FF9900"/>
+            <rect x="40" y="27" width="11" height="5" rx="2.5" fill="#FF9900" opacity="0.58"/>
+            <rect x="40" y="37" width="7"  height="5" rx="2.5" fill="#FF9900" opacity="0.3"/>
+          </svg>
+          <span>32px</span>
+        </div>
+        <div class="fav-size">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="16" height="16">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <polygon points="8,14 8,50 36,32" fill="#FF9900"/>
+            <rect x="40" y="20" width="18" height="7" rx="2.5" fill="#FF9900"/>
+            <rect x="40" y="32" width="13" height="7" rx="2.5" fill="#FF9900" opacity="0.55"/>
+          </svg>
+          <span>16px</span>
+        </div>
+      </div>
+      <div class="fav-surfaces">
+        <div class="fav-surf dark">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#FF9900" stroke-width="1.5" opacity="0.25"/>
+            <polygon points="8,14 8,50 36,32" fill="#FF9900"/>
+            <rect x="40" y="17" width="16" height="5" rx="2.5" fill="#FF9900"/>
+            <rect x="40" y="27" width="11" height="5" rx="2.5" fill="#FF9900" opacity="0.58"/>
+            <rect x="40" y="37" width="7"  height="5" rx="2.5" fill="#FF9900" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="fav-surf light">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40">
+            <rect width="64" height="64" rx="14" fill="#F8F7F4"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#FF9900" stroke-width="1.5" opacity="0.4"/>
+            <polygon points="8,14 8,50 36,32" fill="#FF9900"/>
+            <rect x="40" y="17" width="16" height="5" rx="2.5" fill="#FF9900"/>
+            <rect x="40" y="27" width="11" height="5" rx="2.5" fill="#FF9900" opacity="0.55"/>
+            <rect x="40" y="37" width="7"  height="5" rx="2.5" fill="#FF9900" opacity="0.28"/>
+          </svg>
+        </div>
+      </div>
+      <div class="fav-meta">
+        <div class="logo-concept orange">Play Stack</div>
+        <div class="logo-name">Favicon 01</div>
+        <p class="logo-desc">Leitura limpa em todas as resoluções. O triângulo domina em 16px.</p>
+        <a href="dylist-favicon-1-playstack.svg" download class="logo-dl">↓ Download SVG</a>
+      </div>
+    </div>
+
+    <!-- FAV 2 -->
+    <div class="fav-card">
+      <div class="fav-sizes">
+        <div class="fav-size">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.25"/>
+            <path d="M4,32 L14,32 L19,14 L25,50 L30,14 L36,50 L41,32 L60,32"
+                  fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="60" cy="32" r="3" fill="#06b6d4"/>
+          </svg>
+          <span>64px</span>
+        </div>
+        <div class="fav-size">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.25"/>
+            <path d="M4,32 L14,32 L19,14 L25,50 L30,14 L36,50 L41,32 L60,32"
+                  fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="60" cy="32" r="3" fill="#06b6d4"/>
+          </svg>
+          <span>32px</span>
+        </div>
+        <div class="fav-size">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="16" height="16">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <path d="M4,32 L14,32 L21,12 L28,52 L35,12 L42,52 L49,32 L60,32"
+                  fill="none" stroke="#06b6d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>16px</span>
+        </div>
+      </div>
+      <div class="fav-surfaces">
+        <div class="fav-surf dark">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.25"/>
+            <path d="M4,32 L14,32 L19,14 L25,50 L30,14 L36,50 L41,32 L60,32"
+                  fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="60" cy="32" r="3" fill="#06b6d4"/>
+          </svg>
+        </div>
+        <div class="fav-surf light">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40">
+            <rect width="64" height="64" rx="14" fill="#F8F7F4"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#06b6d4" stroke-width="1.5" opacity="0.5"/>
+            <path d="M4,32 L14,32 L19,14 L25,50 L30,14 L36,50 L41,32 L60,32"
+                  fill="none" stroke="#06b6d4" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="60" cy="32" r="3" fill="#06b6d4"/>
+          </svg>
+        </div>
+      </div>
+      <div class="fav-meta">
+        <div class="logo-concept cyan">Signal</div>
+        <div class="logo-name">Favicon 02</div>
+        <p class="logo-desc">O pulso duplo com ponto vivo. Reconhecível mesmo em 16px.</p>
+        <a href="dylist-favicon-2-signal.svg" download class="logo-dl">↓ Download SVG</a>
+      </div>
+    </div>
+
+    <!-- FAV 3 -->
+    <div class="fav-card">
+      <div class="fav-sizes">
+        <div class="fav-size">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#C7A96E" stroke-width="1.5" opacity="0.35"/>
+            <rect x="8"  y="10" width="4"  height="44" rx="1.5" fill="#C7A96E"/>
+            <rect x="8"  y="10" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="8"  y="50" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="52" y="10" width="4"  height="44" rx="1.5" fill="#C7A96E"/>
+            <rect x="43" y="10" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="43" y="50" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <polygon points="22,22 22,42 40,32" fill="#C7A96E"/>
+          </svg>
+          <span>64px</span>
+        </div>
+        <div class="fav-size">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#C7A96E" stroke-width="1.5" opacity="0.35"/>
+            <rect x="8"  y="10" width="4"  height="44" rx="1.5" fill="#C7A96E"/>
+            <rect x="8"  y="10" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="8"  y="50" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="52" y="10" width="4"  height="44" rx="1.5" fill="#C7A96E"/>
+            <rect x="43" y="10" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="43" y="50" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <polygon points="22,22 22,42 40,32" fill="#C7A96E"/>
+          </svg>
+          <span>32px</span>
+        </div>
+        <div class="fav-size">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="16" height="16">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect x="6"  y="8" width="6"  height="48" rx="1.5" fill="#C7A96E"/>
+            <rect x="6"  y="8" width="18" height="6"  rx="1.5" fill="#C7A96E"/>
+            <rect x="6"  y="50" width="18" height="6" rx="1.5" fill="#C7A96E"/>
+            <rect x="52" y="8" width="6"  height="48" rx="1.5" fill="#C7A96E"/>
+            <rect x="40" y="8" width="18" height="6"  rx="1.5" fill="#C7A96E"/>
+            <rect x="40" y="50" width="18" height="6" rx="1.5" fill="#C7A96E"/>
+            <polygon points="20,18 20,46 44,32" fill="#C7A96E"/>
+          </svg>
+          <span>16px</span>
+        </div>
+      </div>
+      <div class="fav-surfaces">
+        <div class="fav-surf dark">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40">
+            <rect width="64" height="64" rx="14" fill="#060B14"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#C7A96E" stroke-width="1.5" opacity="0.35"/>
+            <rect x="8"  y="10" width="4"  height="44" rx="1.5" fill="#C7A96E"/>
+            <rect x="8"  y="10" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="8"  y="50" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="52" y="10" width="4"  height="44" rx="1.5" fill="#C7A96E"/>
+            <rect x="43" y="10" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="43" y="50" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <polygon points="22,22 22,42 40,32" fill="#C7A96E"/>
+          </svg>
+        </div>
+        <div class="fav-surf light">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40">
+            <rect width="64" height="64" rx="14" fill="#F8F7F4"/>
+            <rect width="64" height="64" rx="14" fill="none" stroke="#C7A96E" stroke-width="1.5" opacity="0.6"/>
+            <rect x="8"  y="10" width="4"  height="44" rx="1.5" fill="#C7A96E"/>
+            <rect x="8"  y="10" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="8"  y="50" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="52" y="10" width="4"  height="44" rx="1.5" fill="#C7A96E"/>
+            <rect x="43" y="10" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <rect x="43" y="50" width="13" height="4"  rx="1.5" fill="#C7A96E"/>
+            <polygon points="22,22 22,42 40,32" fill="#C7A96E"/>
+          </svg>
+        </div>
+      </div>
+      <div class="fav-meta">
+        <div class="logo-concept gold">Bracket</div>
+        <div class="logo-name">Favicon 03</div>
+        <p class="logo-desc">Colchetes e play unidos. Lê como símbolo autoral — não genérico.</p>
+        <a href="dylist-favicon-3-bracket.svg" download class="logo-dl">↓ Download SVG</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PALETA DE CORES -->
+  <div class="sec-label">Paleta de referência</div>
+  <div class="usage-grid">
+    <div class="usage-card">
+      <div class="usage-title">Fundo primário</div>
+      <div class="usage-val"><span class="color-swatch" style="background:#060B14;border:1px solid rgba(255,255,255,0.12)"></span>#060B14</div>
+    </div>
+    <div class="usage-card">
+      <div class="usage-title">Accent — laranja</div>
+      <div class="usage-val"><span class="color-swatch" style="background:#FF9900"></span>#FF9900 · Play Stack</div>
+    </div>
+    <div class="usage-card">
+      <div class="usage-title">Accent — cyan</div>
+      <div class="usage-val"><span class="color-swatch" style="background:#06b6d4"></span>#06b6d4 · Signal</div>
+    </div>
+    <div class="usage-card">
+      <div class="usage-title">Accent — ouro</div>
+      <div class="usage-val"><span class="color-swatch" style="background:#C7A96E"></span>#C7A96E · Bracket</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function toggleBg(id, btn) {
+    const el = document.getElementById(id);
+    const isLight = el.style.background === 'rgb(248, 247, 244)' || el.style.background === '#F8F7F4';
+    el.style.background = isLight ? '#060B14' : '#F8F7F4';
+    btn.textContent = isLight ? 'Fundo claro' : 'Fundo escuro';
+  }
+</script>
+</body>
+</html>

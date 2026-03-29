@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 76">
+  <defs>
+    <style>@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&amp;display=swap');</style>
+  </defs>
+
+  <!-- Background — remova para fundo transparente -->
+  <rect width="300" height="76" fill="#060B14"/>
+
+  <!-- Play triangle -->
+  <polygon points="8,15 8,61 48,38" fill="#FF9900"/>
+
+  <!-- Lista de barras descendentes -->
+  <rect x="56" y="21" width="26" height="6" rx="3" fill="#FF9900"/>
+  <rect x="56" y="33" width="18" height="6" rx="3" fill="#FF9900" opacity="0.58"/>
+  <rect x="56" y="45" width="11" height="6" rx="3" fill="#FF9900" opacity="0.28"/>
+
+  <!-- Logotipo -->
+  <text font-family="'Syne', 'Arial Black', sans-serif" font-weight="800" font-size="40" y="52" x="84">
+    <tspan fill="#FFFFFF">Dy</tspan><tspan fill="#FF9900">list</tspan>
+  </text>
+</svg>
