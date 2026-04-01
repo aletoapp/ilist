@@ -116,3 +116,39 @@ document.addEventListener('DOMContentLoaded', () => {
   
   logger.info('Módulo PWA inicializado');
 });
+
+
+let deferredPrompt;
+const installBtn = document.getElementById('installAppBtn');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // 1. Previne o banner padrão para forçar o uso do seu botão
+    e.preventDefault();
+    
+    // 2. Guarda o evento para ser disparado pelo seu botão depois
+    deferredPrompt = e;
+    
+    // 3. AGORA o botão aparece na interface
+    if (installBtn) {
+        installBtn.style.display = 'block'; 
+        console.log("✅ Lab: Botão de instalação liberado.");
+    }
+});
+
+// Lógica de clique do seu botão customizado
+if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        
+        // Mostra o prompt de instalação
+        deferredPrompt.prompt();
+        
+        // Aguarda a escolha do usuário
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`💻 Lab: Escolha do usuário: ${outcome}`);
+        
+        // Limpa o prompt e esconde o botão
+        deferredPrompt = null;
+        installBtn.style.display = 'none';
+    });
+}
