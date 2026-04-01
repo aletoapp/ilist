@@ -120,34 +120,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let deferredPrompt;
 const installBtn = document.getElementById('installAppBtn');
-
+// O navegador dispara este evento apenas se o Manifest e o SW estiverem OK
 window.addEventListener('beforeinstallprompt', (e) => {
-    // 1. Previne o banner padrão para forçar o uso do seu botão
+    // 1. Previne o banner automático do Chrome para usar o seu botão premium
     e.preventDefault();
     
-    // 2. Guarda o evento para ser disparado pelo seu botão depois
+    // 2. Guarda o evento para ser usado no clique
     deferredPrompt = e;
     
-    // 3. AGORA o botão aparece na interface
+    // 3. Torna o seu botão visível
     if (installBtn) {
-        installBtn.style.display = 'block'; 
-        console.log("✅ Lab: Botão de instalação liberado.");
+        installBtn.style.display = 'block';
+        console.log('✅ Lab: Evento de instalação capturado e botão exibido.');
     }
 });
-
-// Lógica de clique do seu botão customizado
+// Executa a instalação ao clicar no seu botão customizado
 if (installBtn) {
     installBtn.addEventListener('click', async () => {
         if (!deferredPrompt) return;
         
-        // Mostra o prompt de instalação
+        // Abre a caixa de diálogo de instalação (aquela que apareceu na sua barra)
         deferredPrompt.prompt();
         
-        // Aguarda a escolha do usuário
+        // Verifica se o utilizador aceitou ou cancelou
         const { outcome } = await deferredPrompt.userChoice;
-        console.log(`💻 Lab: Escolha do usuário: ${outcome}`);
+        console.log(`💻 Lab: Resposta do utilizador: ${outcome}`);
         
-        // Limpa o prompt e esconde o botão
+        // Limpa o prompt e esconde o botão, pois já foi usado
         deferredPrompt = null;
         installBtn.style.display = 'none';
     });
