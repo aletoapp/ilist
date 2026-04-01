@@ -22,7 +22,7 @@
     }
   ],
   "share_target": {
-    "action": "./index.html",
+    "action": "/ilist/index.html",
     "method": "GET",
     "enctype": "application/x-www-form-urlencoded",
     "params": {
