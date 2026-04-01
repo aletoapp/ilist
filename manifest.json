@@ -38,5 +38,19 @@
       "sizes": "1200x630",
       "type": "image/jpeg"
     }
+    {
+  "src": "assets/img/icon-512.png",
+  "sizes": "512x512",
+  "type": "image/png",
+  "purpose": "any" 
+}
+    "screenshots": [
+  {
+    "src": "assets/img/og-image-1200x630.jpg",
+    "sizes": "1200x630",
+    "type": "image/jpeg",
+    "form_factor": "wide"
+  }
+]
   ]
 }
