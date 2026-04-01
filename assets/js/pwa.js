@@ -5,56 +5,23 @@
 
 let deferredPrompt;
 
-// Service Worker Code (registrado via Blob)
-const swCode = `
-self.addEventListener("install", (e) => {
-  self.skipWaiting();
-  console.log('[SW] Instalado');
-});
-
-self.addEventListener("activate", (e) => {
-  console.log('[SW] Ativado');
-  self.clients.claim();
-});
-
-self.addEventListener("fetch", (e) => {
-  e.respondWith(
-    caches.open("dylist-cache-v2").then(cache => {
-      return fetch(e.request)
-        .then(response => {
-          try {
-            cache.put(e.request, response.clone());
-          } catch(err) {
-            console.warn('[SW] Cache error:', err);
-          }
-          return response;
-        })
-        .catch(() => cache.match(e.request));
-    })
-  );
-});
-`;
-
-// Registrar Service Worker
+// Registrar Service Worker — aponta para sw.js real (blob URLs são bloqueadas pelos browsers)
 function registerServiceWorker() {
-  if ('serviceWorker' in navigator) {
-    try {
-      const blob = new Blob([swCode], { type: 'application/javascript' });
-      const swUrl = URL.createObjectURL(blob);
-      
-      navigator.serviceWorker.register(swUrl)
-        .then(reg => {
-          logger.success('Service Worker registrado', { scope: reg.scope });
-        })
-        .catch(err => {
-          logger.error('Falha ao registrar SW', { error: err.message });
-        });
-    } catch (err) {
-      logger.error('Erro ao criar Service Worker', { error: err.message });
-    }
-  } else {
+  if (!('serviceWorker' in navigator)) {
     logger.warn('Service Workers não suportados');
+    return;
   }
+
+  // Determina o caminho correto do sw.js relativo à página atual
+  const swPath = new URL('sw.js', window.location.href).href;
+
+  navigator.serviceWorker.register(swPath)
+    .then(reg => {
+      logger.success('Service Worker registrado', { scope: reg.scope });
+    })
+    .catch(err => {
+      logger.error('Falha ao registrar SW', { error: err.message });
+    });
 }
 
 // Capturar evento de instalação
@@ -86,7 +53,7 @@ async function installPWA() {
   const result = await deferredPrompt.userChoice;
   
   if (result.outcome === 'accepted') {
-    logger.trackPWAInstall();
+    logger.info('PWA instalado pelo usuário');
     logger.success('PWA instalado');
     if (installBtn) installBtn.style.display = 'none';
   } else {
@@ -98,7 +65,7 @@ async function installPWA() {
 
 // Evento de instalação concluída
 window.addEventListener('appinstalled', () => {
-  logger.trackPWAInstall();
+  logger.info('App instalado no dispositivo');
   logger.success('App instalado no dispositivo');
   
   const installBtn = document.getElementById('installAppBtn');
