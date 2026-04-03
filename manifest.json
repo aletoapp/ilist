@@ -1,32 +1,91 @@
 {
-  "name": "iList",
+  "name": "iList — Seu Player YouTube Sem Distrações",
   "short_name": "iList",
-  "description": "Seu player do Youtube. Sem anúncios, modo escuro OLED e playlist inteligente.",
-  "start_url": "/ilist/index.html",
+  "description": "Ambiente de foco sem anúncios, categorias inteligentes e modo escuro OLED",
+  "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#0f172a",
-  "theme_color": "#0f172a",
-  "orientation": "any",
+  "orientation": "portrait-primary",
+  "background_color": "#060B14",
+  "theme_color": "#060B14",
+  "prefer_related_applications": false,
+  "screenshots": [
+    {
+      "src": "https://alexandretorres.com.br/assets/img/og-image-1200x630.jpg",
+      "sizes": "1200x630",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    },
+    {
+      "src": "https://alexandretorres.com.br/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
   "icons": [
     {
-      "src": "assets/img/icon-192.png",
+      "src": "https://alexandretorres.com.br/assets/img/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/img/icon-512.png",
+      "src": "https://alexandretorres.com.br/assets/img/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "https://alexandretorres.com.br/assets/img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://alexandretorres.com.br/assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
-  "screenshots": [
+  "categories": ["productivity", "entertainment"],
+  "shortcuts": [
     {
-      "src": "assets/img/og-image-1200x630.jpg",
-      "sizes": "1200x630",
-      "type": "image/jpeg",
-      "form_factor": "wide"
+      "name": "Abrir Playlist",
+      "short_name": "Playlist",
+      "description": "Acesse sua playlist salva",
+      "url": "./index.html?tab=playlist",
+      "icons": [
+        {
+          "src": "https://alexandretorres.com.br/assets/img/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Buscar Vídeos",
+      "short_name": "Buscar",
+      "description": "Procure vídeos e canais",
+      "url": "./index.html?tab=search",
+      "icons": [
+        {
+          "src": "https://alexandretorres.com.br/assets/img/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
     }
-  ]
+  ],
+  "share_target": {
+    "action": "./share",
+    "method": "POST",
+    "enctype": "application/x-www-form-urlencoded",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
 }

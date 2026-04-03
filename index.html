@@ -1,58 +1,41 @@
-<!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ═══ SEO — PRIMARY ═════════════════════════════════════════════ -->
-<title>iList — Ambiente de Foco Sem Distrações</title>
-
-<meta name="description" content="iList é um ambiente de foco. Sem algoritmo. Sem distrações. Sem interferência. Você escolhe o que entra — e termina o que começa.">
-
-<meta name="author" content="Alexandre Torres">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-
-<link rel="canonical" href="https://alexandretorres.com.br/ilist/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#060B14">
   <link rel="manifest" href="manifest.json">
 
-<!-- ═══ OPEN GRAPH (WHATSAPP / FACEBOOK / LINK PREVIEW) ═══════════ -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://alexandretorres.com.br/ilist/">
-<meta property="og:site_name" content="iList">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="iList">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
 
-<meta property="og:title" content="iList — Você lista. O show é por nossa conta.">
-<meta property="og:description" content="Um ambiente onde nada compete pela sua atenção. Sem algoritmo. Sem distrações. Só foco real.">
+  <title>iList — Ambiente de Foco Sem Distrações</title>
+  <meta name="description" content="iList é um ambiente de foco. Sem algoritmo. Sem distrações. Sem interferência. Você escolhe o que entra — e termina o que começa.">
+  <meta name="author" content="Alexandre Torres">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://alexandretorres.com.br/ilist/">
 
-<!-- OG IMAGE (CRÍTICO) -->
-<meta property="og:image" content="https://alexandretorres.com.br/assets/img/ilist-og.jpg">
-<meta property="og:image:url" content="https://alexandretorres.com.br/assets/img/ilist-og.jpg">
-<meta property="og:image:secure_url" content="https://alexandretorres.com.br/assets/img/ilist-og.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alexandretorres.com.br/ilist/">
+  <meta property="og:site_name" content="iList">
+  <meta property="og:title" content="iList — Você lista. O show é por nossa conta.">
+  <meta property="og:description" content="Um ambiente onde nada compete pela sua atenção. Sem algoritmo. Sem distrações. Só foco real.">
+  <meta property="og:image" content="https://alexandretorres.com.br/assets/img/ilist-og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="iList — Ambiente de foco sem distrações">
+  <meta property="og:locale" content="pt_BR">
 
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="iList — Você lista. O show é por nossa conta.">
+  <meta name="twitter:description" content="Sem algoritmo. Sem distrações. Só foco.">
+  <meta name="twitter:image" content="https://alexandretorres.com.br/assets/img/ilist-og.jpg">
 
-<meta property="og:image:alt" content="iList — Ambiente de foco sem distrações, sem algoritmo e sem interferência">
-
-<meta property="og:locale" content="pt_BR">
-
-<!-- ═══ TWITTER ═══════════════════════════════════════════════════ -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="iList — Você lista. O show é por nossa conta.">
-<meta name="twitter:description" content="Sem algoritmo. Sem distrações. Só foco.">
-<meta name="twitter:image" content="https://alexandretorres.com.br/assets/img/ilist-og.jpg">
-<meta name="twitter:url" content="https://alexandretorres.com.br/ilist/">
-
-<!-- ═══ PERFORMANCE (DEPOIS DO OG) ════════════════════════════════ -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" as="style">
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" as="style">
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="https://alexandretorres.com.br/assets/img/logo-limiar-512x512.png">
-
-<!-- Theme -->
-<meta name="theme-color" content="#060B14">
-
+  <link rel="icon" type="image/png" sizes="32x32" href="https://alexandretorres.com.br/assets/img/logo-limiar-512x512.png">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" as="style">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" as="style">
+</head>
 <!-- ═══ STRUCTURED DATA ══════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
@@ -475,6 +458,20 @@
 </script>
 <script src="assets/js/input-patch.js"></script>
 <script src="assets/js/onboarding.js"></script>
+<div id="offlineBanner" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#f85149; color:white; padding:10px 20px; border-radius:30px; z-index:9999; font-family:sans-serif; align-items:center; gap:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
+  <span>🔴 Você está offline</span>
+  <small>| Seus dados estão salvos</small>
+</div>
+
+<script>
+  // Lógica do Banner (Simples e direta)
+  window.addEventListener('offline', () => {
+    document.getElementById('offlineBanner').style.display = 'flex';
+  });
+  window.addEventListener('online', () => {
+    document.getElementById('offlineBanner').style.display = 'none';
+  });
+</script>
 
 </body>
 </html>

@@ -1,0 +1,195 @@
+/**
+ * HTML HEAD ENHANCER
+ * 
+ * Adicionar estas meta tags ao <head> do index.html (APÓS as tags existentes)
+ * Estas são as tags críticas que faltam para PWA robusto
+ * 
+ * Copie e cole entre as tags </title> e o link do manifest.json
+ */
+
+/* ═══════════════════════════════════════════════════════════════
+   META TAGS PWA — ADICIONAR AO <head>
+   ═══════════════════════════════════════════════════════════════ */
+
+<!-- ─── VIEWPORT (já existe, verificar) ─── -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+
+<!-- ─── APPLE / iOS ─── -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="iList">
+<link rel="apple-touch-icon" href="https://alexandretorres.com.br/assets/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://alexandretorres.com.br/assets/img/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://alexandretorres.com.br/assets/img/icon-192.png">
+
+<!-- ─── STATUS BAR ANDROID ─── -->
+<meta name="theme-color" content="#060B14" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: light)">
+
+<!-- ─── CONTROLES ANDROID ─── -->
+<meta name="mobile-web-app-capable" content="yes">
+
+<!-- ─── ORIENTAÇÃO ─── -->
+<meta name="screen-orientation" content="portrait">
+
+<!-- ─── CACHE CONTROL (via meta — navegadores respeitam) ─── -->
+<meta http-equiv="Cache-Control" content="public, max-age=3600">
+
+<!-- ─── OFFLINE PAGE (para compatibilidade) ─── -->
+<link rel="alternate" media="only screen and (max-width: 480px)" href="./">
+
+<!-- ─── PRECONNECT A RECURSOS CRÍTICOS ─── -->
+<link rel="preconnect" href="https://www.youtube.com" crossorigin>
+<link rel="preconnect" href="https://www.googleapis.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+<!-- ─── SECURITY ─── -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+
+<!-- ─── SE QUISER UM SPLASH SCREEN CUSTOM NO iOS ─── -->
+<link rel="apple-touch-startup-image" href="https://alexandretorres.com.br/assets/img/og-image-1200x630.jpg">
+
+/* ═══════════════════════════════════════════════════════════════
+   ADICIONALMENTE: ADICIONAR ANTES DE </body>
+   ═══════════════════════════════════════════════════════════════ */
+
+<!-- PWA Inline Detection (execute antes dos scripts principais) -->
+<script>
+  // Detectar offline imediatamente (antes de renderizar)
+  if (!navigator.onLine) {
+    document.documentElement.classList.add('offline-mode');
+  }
+  
+  window.addEventListener('offline', () => {
+    document.documentElement.classList.add('offline-mode');
+    console.log('[PWA] Offline detected');
+  });
+  
+  window.addEventListener('online', () => {
+    document.documentElement.classList.remove('offline-mode');
+    console.log('[PWA] Online restored');
+  });
+
+  // Detectar PWA mode
+  if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
+    document.documentElement.classList.add('running-as-pwa');
+  }
+</script>
+
+/* ═══════════════════════════════════════════════════════════════
+   ADICIONAR AO FINAL DO styles.css
+   ═══════════════════════════════════════════════════════════════ */
+
+/* PWA Offline Styles */
+:root.offline-mode {
+  --offline-banner-display: flex;
+}
+
+.offline-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  z-index: 19999;
+  display: none;
+  animation: slideDown 0.3s ease;
+}
+
+:root.offline-mode .offline-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* PWA App Mode Styles */
+:root.running-as-pwa {
+  --status-bar-safe-area: env(safe-area-inset-top);
+}
+
+/* Adicionar padding no topo se rodando como app */
+:root.running-as-pwa .box {
+  margin-top: env(safe-area-inset-top);
+}
+
+:root.running-as-pwa .playlist {
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
+/* Esconder elementos desnecessários no modo app */
+:root.running-as-pwa #installAppBtn {
+  display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ADICIONAR AO HTML (SIDEBAR ou FOOTER)
+   ═══════════════════════════════════════════════════════════════ */
+
+<!-- Offline Banner (exibido quando offline) -->
+<div id="offlineBanner" class="offline-banner" style="display:none;">
+  <span>🔴 Você está offline</span>
+  <span>·</span>
+  <span>Seus dados estão salvos localmente</span>
+</div>
+
+<!-- Verificador de offline (injetar antes de </body>) -->
+<script>
+  // Mostrar/esconder banner offline
+  const offlineBanner = document.getElementById('offlineBanner');
+  if (offlineBanner) {
+    window.addEventListener('offline', () => {
+      offlineBanner.style.display = 'flex';
+    });
+    window.addEventListener('online', () => {
+      offlineBanner.style.display = 'none';
+    });
+  }
+</script>
+
+/* ═══════════════════════════════════════════════════════════════
+   RESUMO DO QUE FAZER
+   ═══════════════════════════════════════════════════════════════
+
+   1. COPIAR as meta tags acima para <head> do index.html
+
+   2. VERIFICAR que o manifest.json está linkado:
+      <link rel="manifest" href="manifest.json">
+
+   3. VERIFICAR que os scripts são carregados nesta ordem:
+      • pwa.js (ANTES de outros scripts)
+      • app.js
+      • categories.js
+      • ... resto dos scripts
+
+   4. TROCAR o pwa.js original pelo novo (pwa.js v2.0 acima)
+
+   5. TROCAR o sw.js original pelo novo (sw.js v3.0 acima)
+
+   6. TROCAR o manifest.json original pelo novo (manifest.json acima)
+
+   7. ADICIONAR o banner offline ao HTML
+
+   8. TESTAR no Chrome DevTools:
+      • F12 → Application → Service Workers
+      • Ver se está registrado em "offline" (marcar checkbox)
+      • Recarregar página — deve servir cache
+
+   ═══════════════════════════════════════════════════════════════ */
