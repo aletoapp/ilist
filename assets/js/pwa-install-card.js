@@ -460,16 +460,29 @@ class PWAInstallCard {
 // INICIALIZAR
 // ───────────────────────────────────────────────────────────────────
 
-window.pwaInstallCard = null;
+// Inicializar imediatamente (não esperar DOMContentLoaded)
+window.pwaInstallCard = new PWAInstallCard();
 
-// Esperar DOM estar pronto
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    window.pwaInstallCard = new PWAInstallCard();
-  });
-} else {
-  window.pwaInstallCard = new PWAInstallCard();
-}
+// API pública
+window.showPWACard = () => {
+  if (window.pwaInstallCard) {
+    window.pwaInstallCard.show();
+  }
+};
+
+window.hidePWACard = () => {
+  if (window.pwaInstallCard) {
+    window.pwaInstallCard.hide();
+  }
+};
+
+window.resetPWACard = () => {
+  if (window.pwaInstallCard) {
+    window.pwaInstallCard.reset();
+  }
+};
+
+console.log('[PWA Card] 📱 Comandos: showPWACard() | hidePWACard() | resetPWACard()');
 
 // API pública
 window.showPWACard = () => {
