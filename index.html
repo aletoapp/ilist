@@ -1,477 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
-  <meta name="theme-color" content="#060B14">
-  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="iList">
-  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+  <!-- ═══ SEO — Primary ══════════════════════════════════════════════ -->
+  <title>DocForm — Formatação Profissional de Documentos</title>
 
-  <title>iList — Ambiente de Foco Sem Distrações</title>
-  <meta name="description" content="iList é um ambiente de foco. Sem algoritmo. Sem distrações. Sem interferência. Você escolhe o que entra — e termina o que começa.">
-  <meta name="author" content="Alexandre Torres">
+  <meta name="description" content="Transforme textos gerados por IA em documentos profissionais, jurídicos e prontos para uso. Formatação automática, estrutura padronizada e exportação em PDF.">
+  <meta name="author" content="DocForm">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://alexandretorres.com.br/ilist/">
 
+  <link rel="canonical" href="https://docform.app/">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/script.js" defer></script>
+  <!-- ═══ OPEN GRAPH (WHATSAPP/FACEBOOK) ═════════════════════════════ -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://alexandretorres.com.br/ilist/">
-  <meta property="og:site_name" content="iList">
-  <meta property="og:title" content="iList — Você lista. O show é por nossa conta.">
-  <meta property="og:description" content="Um ambiente onde nada compete pela sua atenção. Sem algoritmo. Sem distrações. Só foco real.">
-  <meta property="og:image" content="https://alexandretorres.com.br/assets/img/ilist-og.jpg">
+  <meta property="og:url" content="https://docform.app/">
+  <meta property="og:site_name" content="DocForm">
+  <meta property="og:title" content="DocForm — Documentos Profissionais a partir de IA">
+  <meta property="og:description" content="Cole textos do ChatGPT, Gemini ou Claude e gere documentos formatados com padrão jurídico e profissional em segundos.">
+  <meta property="og:image" content="https://docform.app/assets/og.jpg">
+  <meta property="og:image:url" content="https://docform.app/assets/og.jpg">
+  <meta property="og:image:secure_url" content="https://docform.app/assets/og.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="iList — Ambiente de foco sem distrações">
+  <meta property="og:image:alt" content="DocForm — Formatação profissional de documentos com inteligência artificial">
   <meta property="og:locale" content="pt_BR">
 
+  <!-- ═══ TWITTER ════════════════════════════════════════════════════ -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="iList — Você lista. O show é por nossa conta.">
-  <meta name="twitter:description" content="Sem algoritmo. Sem distrações. Só foco.">
-  <meta name="twitter:image" content="https://alexandretorres.com.br/assets/img/ilist-og.jpg">
+  <meta name="twitter:title" content="DocForm — Formatação de Doc Profissional">
+  <meta name="twitter:description" content="Gere contratos, currículos e documentos estruturados automaticamente a partir de textos de IA.">
+  <meta name="twitter:image" content="https://docform.app/assets/og.jpg">
+  <meta name="twitter:url" content="https://docform.app/">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="https://alexandretorres.com.br/assets/img/logo-limiar-512x512.png">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&display=swap" as="style">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" as="style">
-</head>
-<!-- ═══ STRUCTURED DATA ══════════════════════════════════════════ -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "SoftwareApplication",
-      "name": "iList",
-      "applicationCategory": "ProductivityApplication",
-      "operatingSystem": "Web",
-      "url": "https://alexandretorres.com.br/ilist/",
-      "description": "Ambiente de foco sem algoritmo, sem distrações e sem interferência.",
-      "author": {
-        "@type": "Person",
-        "name": "Alexandre Torres"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "BRL"
+  <!-- ═══ PERFORMANCE ════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preload" href="/assets/css/styles.css" as="style">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/icon-192.png">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="DocForm">
+  <meta name="application-name" content="DocForm">
+  <meta name="msapplication-TileColor" content="#0a0d12">
+  <meta name="theme-color" content="#0a0d12">
+
+  <!-- ═══ STRUCTURED DATA ════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://docform.app/#app",
+        "name": "DocForm",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "url": "https://docform.app/",
+        "description": "Aplicação web para formatação automática de documentos profissionais e jurídicos a partir de textos gerados por inteligência artificial.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "BRL"
+        }
       }
-    }
-  ]
-}
-</script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    ]
+  }
+  </script>
+
+  <!-- ═══ FONTS ══════════════════════════════════════════════════════ -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- ═══ STYLES ═════════════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- ═══ THIRD-PARTY SCRIPTS ═══════════════════════════════════════ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-     BOX PRINCIPAL
-═══════════════════════════════════ -->
-<div class="box">
+<div class="toast" id="toast"></div>
 
-    <!-- Modo escuro wrapper (preenchido por app.js) -->
-    <div id="darkModeBtnWrapper"></div>
+<!-- Offline indicator -->
+<div id="offline-bar" style="display:none;">
+  <span class="offline-dot"></span>
+  <span>Modo offline — recursos em cache</span>
+</div>
 
-    <!-- Título -->
-    <h3 class="app-title">
-        i<span class="brand-accent">List</span>
-        <span class="brand-tagline">— você lista, o show é por nossa conta</span>
-    </h3>
-
-    <!-- ── PASSO 1: Criar / selecionar categoria ── -->
-    <div class="action-row">
-        <button class="btn-criar-categoria" id="openCategoriesBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.75)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M 15.09 14 c 0.18 -0.98 0.65 -1.74 1.41 -2.5 A 4.65 4.65 0 0 0 18 8 A 6 6 0 0 0 6 8 c 0 1 0.23 2.23 1.5 3.5 A 4.61 4.61 0 0 1 8.91 14"/>
-                <line x1="9" y1="18" x2="15" y2="18"/>
-                <line x1="10" y1="21" x2="14" y2="21"/>
-            </svg>
-            <span class="btn-label">Criar Categoria</span>
-        </button>
+<!-- PWA Install Banner -->
+<div id="pwa-banner" style="display:none;" role="dialog" aria-label="Instalar DocForm">
+  <div class="pwa-icon">📲</div>
+  <div class="pwa-body">
+    <div class="pwa-title">Instalar DocForm</div>
+    <div class="pwa-desc">Use offline, sem internet, como app nativo.</div>
+    <div class="pwa-actions">
+      <button class="pwa-install" onclick="pwaInstall()">Instalar</button>
+      <button class="pwa-dismiss" onclick="pwaDismiss()">Agora não</button>
     </div>
+  </div>
+</div>
 
-    <!-- ── PASSO 2: Input inteligente único ── -->
-    <div class="url-input-area">
-        <div class="url-input-row">
-            <div class="url-input-wrapper">
-                <span class="url-input-icon" id="urlInputIcon">🔗</span>
-                <input
-                    id="urlInput"
-                    type="text"
-                    class="url-input-field"
-                    placeholder="Cole um link ou busque por nome..."
-                    autocomplete="off"
-                >
-            </div>
-            <button id="addBtn" class="url-search-btn" title="Buscar / Adicionar (Enter)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            </button>
+<!-- ══════ HEADER ══════ -->
+<header>
+  <a class="logo" onclick="navigate('home')">
+    <div class="logo-mark">⚖</div>
+    <div>
+      <span class="logo-text">DocForm</span>
+      <span class="logo-sub">Formatação Profissional · 2026</span>
+    </div>
+  </a>
+  <div class="hdr-right">
+    <span class="badge" id="pwa-status-badge">v 1.0</span>
+  </div>
+</header>
+
+<!-- ══════ LAYOUT ══════ -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <span class="nav-section">Menu</span>
+    <div class="nav-item active" onclick="navigate('home',this)">
+      <span class="ni">🏠</span> Início
+    </div>
+    <div class="nav-sep"></div>
+    <span class="nav-section">Documentos</span>
+    <div class="nav-item" onclick="navigate('formatar',this)">
+      <span class="ni">✦</span> Formatar Texto IA
+    </div>
+    <div class="nav-item" onclick="navigate('curriculo',this)">
+      <span class="ni">📄</span> Currículo
+    </div>
+    <div class="nav-item" onclick="navigate('email',this)">
+      <span class="ni">📧</span> E-mail Formal
+    </div>
+    <div class="nav-sep"></div>
+    <span class="nav-section">Atalhos</span>
+    <div class="nav-item" onclick="quickPreset('aluguel-residencial')"><span class="ni">🏠</span> Aluguel Residencial</div>
+    <div class="nav-item" onclick="quickPreset('aluguel-comercial')"><span class="ni">🏢</span> Aluguel Comercial</div>
+    <div class="nav-item" onclick="quickPreset('prestacao-servicos')"><span class="ni">🤝</span> Prestação Serviços</div>
+    <div class="nav-item" onclick="quickPreset('trabalho-freelance')"><span class="ni">💼</span> Freelance</div>
+    <div class="nav-item" onclick="quickPreset('compra-venda')"><span class="ni">💰</span> Compra e Venda</div>
+    <div class="nav-item" onclick="quickPreset('nda')"><span class="ni">🔒</span> NDA Confidencial.</div>
+    <div class="nav-item" onclick="quickPreset('danos')"><span class="ni">⚠️</span> Cobrança Danos</div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- ══ HOME ══ -->
+    <div class="panel active" id="panel-home">
+      <div class="hero-title">Bem-vindo ao <span>DocForm</span></div>
+      <p class="hero-sub">Cole o texto gerado por IA e obtenha um documento <strong style="color:var(--text)">juridicamente formatado</strong>, profissional e pronto para impressão ou assinatura digital Gov.br.</p>
+      <div class="feat-grid">
+        <div class="feat-card" onclick="navigate('formatar')">
+          <div class="fc-icon">✦</div>
+          <div class="fc-title">Formatar Documento</div>
+          <div class="fc-desc">Cole qualquer texto de IA e aplique formatação jurídica em segundos.</div>
         </div>
+        <div class="feat-card" onclick="navigate('curriculo')">
+          <div class="fc-icon">📄</div>
+          <div class="fc-title">Criar Currículo</div>
+          <div class="fc-desc">Formulário completo 2026. PDF só com o que foi preenchido.</div>
+        </div>
+        <div class="feat-card" onclick="navigate('email')">
+          <div class="fc-icon">📧</div>
+          <div class="fc-title">E-mail Formal</div>
+          <div class="fc-desc">Formate comunicados com padrão corporativo.</div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:18px;">
+        <div class="card-title">⚡ Como funciona</div>
+        <div class="how-grid">
+          <div class="how-step"><div class="how-num">① Cole o texto</div><div class="how-text">Copie tudo do ChatGPT, Gemini ou qualquer IA generativa.</div></div>
+          <div class="how-step"><div class="how-num">② Escolha o tipo</div><div class="how-text">Selecione o preset ou deixe a detecção automática agir.</div></div>
+          <div class="how-step"><div class="how-num">③ Visualize</div><div class="how-text">Pré-visualização A4 real com margens e tipografia profissional.</div></div>
+          <div class="how-step"><div class="how-num">④ Exporte PDF</div><div class="how-text">PDF vetorial com margens jurídicas padrão OAB/Tribunais (3×2×2×2 cm) — fiel à prévia.</div></div>
+        </div>
+      </div>
+      <div class="card" style="border-color:rgba(0,102,204,0.25);background:rgba(0,102,204,0.05);">
+        <div class="card-title" style="color:#5fa8f5;">📱 Dica — Uso em Campo</div>
+        <p style="font-size:0.82rem;color:var(--text-2);line-height:1.6;">
+          Use o <strong style="color:var(--text)">DocForm</strong> e o app <strong style="color:var(--text)">Gov.br</strong> simultaneamente. Gere o PDF aqui, salve no dispositivo e abra no Gov.br para assinar digitalmente — tudo pelo celular.
+        </p>
+      </div>
     </div>
 
-    <!-- Botão Pix oculto (compatibilidade app.js) -->
-    <button id="copiarPixBtn" style="display:none;"></button>
+    <!-- ══ FORMATAR ══ -->
+    <div class="panel" id="panel-formatar">
+      <div class="page-header">
+        <div class="page-title">Formatar Documento</div>
+        <div class="page-desc">Cole o texto gerado por IA. O conteúdo não é alterado — apenas a formatação visual.</div>
+      </div>
 
+      <!-- Preset -->
+      <div class="card">
+        <div class="card-title">① Tipo de Documento</div>
+        <div class="detect-row">
+          <span class="detect-row-label">🤖 Detecção Automática</span>
+          <label class="ios-toggle">
+            <input type="checkbox" id="auto-detect-toggle" checked>
+            <span class="ios-slider"></span>
+          </label>
+        </div>
+        <div id="detect-banner-wrap" style="display:none;"></div>
+        <div class="presets-grid" id="presets-container">
+          <div class="preset-btn" data-preset="aluguel-residencial" onclick="selectPreset(this)"><span class="preset-icon">🏠</span>Aluguel Residencial</div>
+          <div class="preset-btn" data-preset="aluguel-comercial"   onclick="selectPreset(this)"><span class="preset-icon">🏢</span>Aluguel Comercial</div>
+          <div class="preset-btn" data-preset="aluguel-veiculo"     onclick="selectPreset(this)"><span class="preset-icon">🚗</span>Locação Veículo</div>
+          <div class="preset-btn" data-preset="prestacao-servicos"  onclick="selectPreset(this)"><span class="preset-icon">🤝</span>Prestação Serviços</div>
+          <div class="preset-btn" data-preset="trabalho-freelance"  onclick="selectPreset(this)"><span class="preset-icon">💼</span>Freelance</div>
+          <div class="preset-btn" data-preset="compra-venda"        onclick="selectPreset(this)"><span class="preset-icon">💰</span>Compra e Venda</div>
+          <div class="preset-btn" data-preset="parceria"            onclick="selectPreset(this)"><span class="preset-icon">🔗</span>Parceria Comercial</div>
+          <div class="preset-btn" data-preset="nda"                 onclick="selectPreset(this)"><span class="preset-icon">🔒</span>NDA Confidencial.</div>
+          <div class="preset-btn" data-preset="danos"               onclick="selectPreset(this)"><span class="preset-icon">⚠️</span>Cobrança Danos</div>
+          <div class="preset-btn" data-preset="emprestimo"          onclick="selectPreset(this)"><span class="preset-icon">💳</span>Empréstimo</div>
+          <div class="preset-btn" data-preset="trabalho"            onclick="selectPreset(this)"><span class="preset-icon">📋</span>Contrato Trabalho</div>
+          <div class="preset-btn" data-preset="generico"            onclick="selectPreset(this)"><span class="preset-icon">📝</span>Genérico</div>
+        </div>
+      </div>
 
-    <!-- ═══ MODAL: Gerenciar Categorias ═══ -->
-    <div id="categoriesModal" class="modal" onclick="closeModalOnOutsideClick(event, 'categoriesModal')">
-        <div class="modal-content category-modal-content" onclick="event.stopPropagation()">
-            <h3 style="margin-top:0;">📁 Gerenciar Categorias</h3>
+      <!-- Cabeçalho -->
+      <div class="card">
+        <div class="card-title">② Cabeçalho</div>
+        <div class="form-grid">
+          <div class="form-row">
+            <div class="fg"><label>Título do Documento</label><input type="text" id="doc-titulo" placeholder="CONTRATO DE LOCAÇÃO RESIDENCIAL"></div>
+            <div class="fg"><label>Número / Ref.</label><input type="text" id="doc-numero" placeholder="001/2026"></div>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label>Cidade – Estado</label><input type="text" id="doc-cidade" placeholder="São Paulo – SP"></div>
+            <div class="fg"><label>Data de Elaboração</label><input type="date" id="doc-data"></div>
+          </div>
+        </div>
+      </div>
 
-            <div class="category-create-section">
-                <input type="text" id="newCategoryInput" class="category-input" placeholder="Nome da nova categoria" maxlength="25">
-                <div class="color-selector">
-                    <label style="font-size:12px; color:var(--muted); margin-bottom:8px; display:block; font-family:var(--mono); text-transform:uppercase; letter-spacing:1px;">Cor da categoria:</label>
-                    <div class="color-grid" id="colorGrid"></div>
+      <!-- Identidade Visual -->
+      <div class="card">
+        <div class="card-title">② Identidade Visual <span style="font-size:0.65rem;color:var(--text-3);font-weight:400;">(opcional)</span></div>
+        <div class="form-row" style="align-items:flex-start;">
+          <div class="fg">
+            <label>Logotipo (cabeçalho)</label>
+            <div class="logo-zone" id="logo-drop" onclick="document.getElementById('logo-file').click()">
+              <img id="logo-preview-img" style="display:none;">
+              <div id="logo-ph"><div class="logo-zone-icon">🖼</div><div class="logo-zone-text">PNG / JPG / SVG</div></div>
+            </div>
+            <input type="file" id="logo-file" accept="image/*" style="display:none;" onchange="loadLogo(this)">
+            <button class="btn btn-danger" id="logo-rm" style="display:none;margin-top:6px;width:100%;" onclick="removeLogo()">Remover logotipo</button>
+          </div>
+          <div class="fg">
+            <label>Marca d'água</label>
+            <div class="logo-zone" id="wm-drop" onclick="document.getElementById('wm-file').click()">
+              <img id="wm-preview-img" style="display:none;">
+              <div id="wm-ph"><div class="logo-zone-icon">💧</div><div class="logo-zone-text">PNG / JPG</div></div>
+            </div>
+            <input type="file" id="wm-file" accept="image/*" style="display:none;" onchange="loadWatermark(this)">
+            <button class="btn btn-danger" id="wm-rm" style="display:none;margin-top:6px;width:100%;" onclick="removeWatermark()">Remover marca d'água</button>
+            <div style="margin-top:10px;" id="wm-pos-row">
+              <label style="font-family:var(--font-mono);font-size:0.66rem;color:var(--text-2);letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:6px;">Posição</label>
+              <div class="wm-opts" id="wm-pos-btns">
+                <button class="wm-btn active" data-wm="center" onclick="selWmPos(this)"><span class="wm-icon">⊕</span>Centro</button>
+                <button class="wm-btn" data-wm="top-left" onclick="selWmPos(this)"><span class="wm-icon">↖</span>Topo esq.</button>
+                <button class="wm-btn" data-wm="top-right" onclick="selWmPos(this)"><span class="wm-icon">↗</span>Topo dir.</button>
+                <button class="wm-btn" data-wm="bottom-right" onclick="selWmPos(this)"><span class="wm-icon">↘</span>Rod. dir.</button>
+              </div>
+            </div>
+            <div style="margin-top:10px;display:flex;align-items:center;gap:10px;">
+              <input type="range" id="wm-opacity" min="3" max="35" value="12" style="flex:1;accent-color:var(--ink);background:none;border:none;padding:0;">
+              <span id="wm-opacity-val" style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-2);min-width:28px;">12%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Texto -->
+      <div class="card">
+        <div class="card-title">③ Texto do Contrato</div>
+        <textarea id="input-text" placeholder="Cole aqui o texto copiado do ChatGPT, Gemini ou qualquer IA...&#10;&#10;O DocForm NÃO altera o conteúdo escrito. Apenas aplica:&#10;• Hierarquia de títulos e cláusulas&#10;• Parágrafos justificados com recuo e espaçamento profissional&#10;• Espaço de assinatura com área Gov.br / ICP-Brasil&#10;• Numeração de páginas&#10;• PDF nativo vetorial — sem granulação nem distorção"></textarea>
+        <div class="textarea-meta">
+          <span class="char-count" id="char-count">0 caracteres</span>
+          <button class="btn btn-secondary" style="padding:5px 11px;font-size:0.76rem;" onclick="document.getElementById('input-text').value='';updateCount()">Limpar</button>
+        </div>
+      </div>
+
+      <!-- Opções -->
+      <div class="card">
+        <div class="card-title">④ Opções</div>
+        <div class="chips" id="format-options">
+          <button class="chip on" data-opt="numerarClausulas">Numerar Cláusulas</button>
+          <button class="chip on" data-opt="espacoAssinatura">Espaço de Assinatura</button>
+          <button class="chip on" data-opt="dataLocal">Data e Local</button>
+          <button class="chip on" data-opt="paginacao">Numeração de Páginas</button>
+          <button class="chip on" data-opt="rodape">Rodapé</button>
+          <button class="chip"    data-opt="govbr">Área Gov.br</button>
+          <button class="chip"    data-opt="testemunhas">Testemunhas</button>
+        </div>
+        <div class="form-row">
+          <div class="fg"><label>Assinante 1</label><input type="text" id="sign1-name" placeholder="Locador / Contratante"></div>
+          <div class="fg"><label>Assinante 2</label><input type="text" id="sign2-name" placeholder="Locatário / Contratado"></div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-full" onclick="formatarDocumento()">✦ Formatar &amp; Visualizar</button>
+
+      <!-- Preview -->
+      <div id="preview-section" style="display:none;margin-top:24px;">
+        <div class="preview-toolbar">
+          <div class="pt-left">
+            <div class="pt-title">Pré-visualização</div>
+            <div class="pt-meta" id="preview-info">—</div>
+          </div>
+          <div class="pt-actions">
+            <button class="btn btn-secondary" onclick="window.print()">🖨</button>
+            <button class="btn btn-secondary" id="btn-docx-contrato" onclick="exportarDOCX('contrato')">⬇ DOCX</button>
+            <button class="btn btn-primary" id="btn-pdf-contrato" onclick="exportarPDF('contrato')">⬇ PDF</button>
+          </div>
+        </div>
+        <div class="doc-frame">
+          <div class="doc-scale-wrapper" id="preview-pages-wrap"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ CURRÍCULO ══ -->
+    <div class="panel" id="panel-curriculo">
+      <div class="page-header">
+        <div class="page-title">Currículo 2026</div>
+        <div class="page-desc">Preencha apenas o que for relevante. Campos vazios não aparecem no PDF.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">👤 Dados Pessoais</div>
+        <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap;">
+          <div>
+            <div class="photo-btn" onclick="document.getElementById('cv-photo-input').click()">
+              <img id="cv-photo-img" style="display:none;">
+              <div id="cv-photo-ph"><div class="photo-icon">📷</div><span style="font-size:0.63rem;">Foto</span></div>
+            </div>
+            <input type="file" id="cv-photo-input" accept="image/*" style="display:none;" onchange="loadPhoto(this)">
+          </div>
+          <div style="flex:1;min-width:210px;">
+            <div class="form-grid">
+              <div class="fg"><label>Nome Completo *</label><input type="text" id="cv-nome" placeholder="Seu nome completo"></div>
+              <div class="fg"><label>Cargo / Título Profissional</label><input type="text" id="cv-cargo" placeholder="Gerente Comercial Sênior"></div>
+              <div class="form-row">
+                <div class="fg"><label>Cidade / Estado</label><input type="text" id="cv-cidade" placeholder="São Paulo – SP"></div>
+                <div class="fg"><label>Nascimento</label><input type="date" id="cv-nascimento"></div>
+              </div>
+              <div class="form-row">
+                <div class="fg"><label>Estado Civil</label>
+                  <select id="cv-estado-civil"><option value="">Não informar</option><option>Solteiro(a)</option><option>Casado(a)</option><option>Divorciado(a)</option><option>Viúvo(a)</option><option>União Estável</option></select>
                 </div>
-                <button id="createCategoryBtn" class="btn-primary" style="width:100%; margin-top:10px; margin-left:0;">✓ Criar Categoria</button>
+                <div class="fg"><label>Disponibilidade</label>
+                  <select id="cv-disp"><option value="">Não informar</option><option>Imediata</option><option>15 dias</option><option>30 dias</option><option>A combinar</option></select>
+                </div>
+              </div>
             </div>
-
-            <hr style="border:0; height:1px; background:rgba(255,255,255,0.06); margin:20px 0;">
-
-            <div class="categories-list-section">
-                <h4 style="font-size:12px; color:var(--muted); margin-bottom:10px; font-family:var(--mono); text-transform:uppercase; letter-spacing:1px;">Categorias existentes:</h4>
-                <div id="categoriesList"></div>
-            </div>
-
-            <button class="close-btn" id="closeCategoriesBtn">Fechar</button>
+          </div>
         </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📞 Contato &amp; Redes</div>
+        <div class="form-grid">
+          <div class="form-row">
+            <div class="fg"><label>Telefone / WhatsApp</label><input type="tel" id="cv-tel" placeholder="(11) 99999-9999"></div>
+            <div class="fg"><label>E-mail</label><input type="email" id="cv-email" placeholder="seu@email.com"></div>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label>LinkedIn</label><input type="url" id="cv-linkedin" placeholder="linkedin.com/in/seuperfil"></div>
+            <div class="fg"><label>GitHub / GitLab</label><input type="url" id="cv-github" placeholder="github.com/seuperfil"></div>
+          </div>
+          <div class="form-row">
+            <div class="fg"><label>Site / Portfólio</label><input type="url" id="cv-site" placeholder="meusite.com.br"></div>
+            <div class="fg"><label>Instagram</label><input type="url" id="cv-instagram" placeholder="@seuperfil"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📋 Informações Adicionais</div>
+        <div class="form-row">
+          <div class="fg"><label>PCD</label><select id="cv-pcd"><option value="">Não informar</option><option>Sim</option><option>Não</option></select></div>
+          <div class="fg"><label>Pretensão Salarial</label><input type="text" id="cv-salario" placeholder="R$ 6.000,00 / A combinar"></div>
+        </div>
+        <div class="form-row" style="margin-top:10px;">
+          <div class="fg"><label>CNH</label><select id="cv-cnh"><option value="">Não possui</option><option>A</option><option>B</option><option>AB</option><option>C</option><option>D</option><option>E</option></select></div>
+          <div class="fg"><label>Veículo Próprio</label><select id="cv-veiculo"><option value="">Não informar</option><option>Sim</option><option>Não</option></select></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">✍ Resumo Profissional</div>
+        <textarea id="cv-resumo" rows="4" placeholder="Breve descrição da sua trajetória, especialidades e diferenciais..."></textarea>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💼 Experiência Profissional</div>
+        <div id="cv-exp-container"></div>
+        <button class="btn btn-secondary" style="margin-top:4px;" onclick="addExp()">+ Adicionar Experiência</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎓 Formação Acadêmica</div>
+        <div id="cv-edu-container"></div>
+        <button class="btn btn-secondary" style="margin-top:4px;" onclick="addEdu()">+ Adicionar Formação</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🏆 Cursos &amp; Certificações</div>
+        <div id="cv-curso-container"></div>
+        <button class="btn btn-secondary" style="margin-top:4px;" onclick="addCurso()">+ Adicionar Curso</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔧 Habilidades Técnicas</div>
+        <div class="tags-wrap">
+          <div id="skills-wrap" style="display:contents;"></div>
+          <input type="text" id="skills-input" class="tags-input" placeholder="Digite e pressione Enter...">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🌍 Idiomas</div>
+        <div id="cv-idioma-container"></div>
+        <button class="btn btn-secondary" style="margin-top:4px;" onclick="addIdioma()">+ Adicionar Idioma</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">➕ Informações Extras</div>
+        <div class="form-grid">
+          <div class="fg"><label>Trabalho Voluntário</label><textarea id="cv-voluntario" rows="2" placeholder="Descreva atividades voluntárias relevantes..."></textarea></div>
+          <div class="fg"><label>Prêmios &amp; Reconhecimentos</label><textarea id="cv-premios" rows="2" placeholder="Prêmios, reconhecimentos profissionais..."></textarea></div>
+          <div class="fg"><label>Publicações / Projetos</label><textarea id="cv-publicacoes" rows="2" placeholder="Artigos, projetos open source, portfólio..."></textarea></div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-full" onclick="gerarCV()">📄 Gerar Currículo</button>
+
+      <div id="cv-preview-section" style="display:none;margin-top:24px;">
+        <div class="preview-toolbar">
+          <div class="pt-left">
+            <div class="pt-title">Currículo Gerado</div>
+            <div class="pt-meta">Confira antes de exportar</div>
+          </div>
+          <div class="pt-actions">
+            <button class="btn btn-secondary" id="btn-docx-cv" onclick="exportarDOCX('cv')">⬇ DOCX</button>
+            <button class="btn btn-primary" id="btn-pdf-cv" onclick="exportarPDF('cv')">⬇ PDF</button>
+          </div>
+        </div>
+        <div class="doc-frame">
+          <div id="cv-preview" style="width:794px;min-height:1123px;padding:75px 75px 90px 75px;background:#fff;box-sizing:border-box;margin:0 auto;">
+            <div id="cv-doc-inner" class="cv-doc"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- ══ EMAIL ══ -->
+    <div class="panel" id="panel-email">
+      <div class="page-header">
+        <div class="page-title">E-mail Formal</div>
+        <div class="page-desc">Formate comunicados e notificações com padrão corporativo.</div>
+      </div>
 
-    <!-- ═══ MODAL: Editar Categoria ═══ -->
-    <div id="editCategoryModal" class="modal" onclick="closeModalOnOutsideClick(event, 'editCategoryModal')">
-        <div class="modal-content category-modal-content" onclick="event.stopPropagation()">
-            <h3 style="margin-top:0;">✎ Editar Categoria</h3>
-            <input type="text" id="editCategoryInput" class="category-input" placeholder="Novo nome" maxlength="25">
-            <div class="color-selector">
-                <label style="font-size:12px; color:var(--muted); margin-bottom:8px; display:block; font-family:var(--mono); text-transform:uppercase; letter-spacing:1px;">Nova cor:</label>
-                <div class="color-grid" id="editColorGrid"></div>
-            </div>
-            <button id="saveEditCategoryBtn" class="btn-primary" style="width:100%; margin-top:15px; margin-left:0;">Salvar Alterações</button>
-            <button class="close-btn" id="closeEditCategoryBtn">Cancelar</button>
+      <div class="card">
+        <div class="card-title">📧 Dados do E-mail</div>
+        <div class="form-grid">
+          <div class="fg"><label>Assunto</label><input type="text" id="em-assunto" placeholder="Notificação de Rescisão Contratual"></div>
+          <div class="form-row">
+            <div class="fg"><label>De (nome / cargo)</label><input type="text" id="em-de" placeholder="João Silva – Departamento Jurídico"></div>
+            <div class="fg"><label>Para (destinatário)</label><input type="text" id="em-para" placeholder="Empresa XYZ Ltda."></div>
+          </div>
+          <div class="fg"><label>Data / Local</label><input type="text" id="em-local" placeholder="São Paulo, 29 de março de 2026"></div>
         </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">✍ Corpo do E-mail</div>
+        <textarea id="em-corpo" rows="8" placeholder="Cole ou escreva o corpo do e-mail aqui..."></textarea>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🖊 Assinatura</div>
+        <textarea id="em-assinatura" rows="3" placeholder="Nome, Cargo, Empresa, Telefone, E-mail&#10;Separe por vírgula para quebrar linhas"></textarea>
+      </div>
+
+      <button class="btn btn-primary btn-full" onclick="formatarEmail()">📧 Formatar E-mail</button>
+
+      <div id="email-preview-section" style="display:none;margin-top:24px;">
+        <div class="preview-toolbar">
+          <div class="pt-left">
+            <div class="pt-title">E-mail Formatado</div>
+          </div>
+          <div class="pt-actions">
+            <button class="btn btn-secondary" id="btn-docx-email" onclick="exportarDOCX('email')">⬇ DOCX</button>
+            <button class="btn btn-primary" id="btn-pdf-email" onclick="exportarPDF('email')">⬇ PDF</button>
+          </div>
+        </div>
+        <div class="doc-frame">
+          <div id="email-preview" class="email-doc" style="width:794px;min-height:600px;padding:75px 75px 90px 113px;background:#fff;box-sizing:border-box;margin:0 auto;"></div>
+        </div>
+      </div>
     </div>
 
-
-    <!-- ═══ MODAL: Escolher Categoria ao adicionar vídeo ═══ -->
-    <div id="categorySelectModal" class="modal" onclick="closeModalOnOutsideClick(event, 'categorySelectModal')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <h3 style="margin-top:0;">📂 Escolha a Categoria</h3>
-            <p style="font-size:13px; color:var(--muted); margin-bottom:4px;">Onde deseja salvar os vídeos?</p>
-            <div id="categorySelectList" style="display:flex; flex-direction:column; gap:10px; margin:15px 0;"></div>
-            <button class="close-btn" id="closeCategorySelectBtn">Cancelar</button>
-        </div>
-    </div>
-
-
-    <!-- ═══ MODAL: Confirmar apagar tudo ═══ -->
-    <div id="confirmModal" class="modal" onclick="closeModalOnOutsideClick(event, 'confirmModal')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <h3>⚠️ Apagar toda a lista?</h3>
-            <p style="font-size:13px; color:var(--muted); margin-top:8px; line-height:1.6;">Esta ação não pode ser desfeita. Todos os vídeos serão removidos.</p>
-            <div class="modal-buttons" style="flex-direction:row; justify-content:center; gap:12px; margin-top:20px;">
-                <button id="clearYesBtn" style="background:var(--red); color:#fff; border:none; flex:1; margin-left:0;">Sim, apagar tudo</button>
-                <button class="close-btn" id="clearNoBtn" style="flex:1;">Cancelar</button>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ═══ PLAYER ═══ -->
-    <div id="player"></div>
-
-    <!-- ═══ CONTROLES DO PLAYER ═══ -->
-    <div class="player-controls-advanced">
-
-        <!-- Barra de progresso -->
-        <div class="progress-container" id="progressContainer">
-            <div class="progress-bar" id="progressBar"></div>
-            <div class="progress-times">
-                <span id="currentTime">0:00</span>
-                <span id="duration">0:00</span>
-            </div>
-        </div>
-
-        <!-- Controles principais -->
-        <div class="main-controls">
-            <button class="control-btn" onclick="previousVideo()" title="Anterior (Ctrl+P)">⏮</button>
-            <button class="control-btn" onclick="skipBackward(10)" title="Voltar 10s (←)">⏪</button>
-            <button class="control-btn control-btn-primary" onclick="player && player.playVideo()" title="Play/Pause (Espaço)">▶️</button>
-            <button class="control-btn" onclick="skipForward(10)" title="Avançar 10s (→)">⏩</button>
-            <button class="control-btn" onclick="nextVideo()" title="Próximo (Ctrl+N)">⏭</button>
-        </div>
-
-        <!-- Controles secundários — GRUPO 1: reprodução | GRUPO 2: utilidades -->
-        <div class="secondary-controls">
-            <!-- Grupo 1: reprodução -->
-            <button class="control-btn-small btn-tutoriais" onclick="window.tutorialSidebar && window.tutorialSidebar.openSidebar()" title="Abrir tutoriais (Ctrl+H)">🎓 Tutoriais</button>
-
-            <button class="control-btn-small" id="loopModeBtn" onclick="toggleLoopMode()" title="Modo de repetição (Ctrl+L)">🔂 Normal</button>
-
-            <div class="speed-control">
-                <select id="speedSelect" onchange="changePlaybackSpeed(parseFloat(this.value))" class="speed-select">
-                    <option value="0.25">0.25x</option>
-                    <option value="0.5">0.5x</option>
-                    <option value="0.75">0.75x</option>
-                    <option value="1" selected>1x</option>
-                    <option value="1.25">1.25x</option>
-                    <option value="1.5">1.5x</option>
-                    <option value="1.75">1.75x</option>
-                    <option value="2">2x</option>
-                </select>
-            </div>
-
-            <!-- Divisor visual -->
-            <div class="controls-divider"></div>
-
-            <!-- Grupo 2: utilidades -->
-            <div class="timer-control-inline">
-                <select id="timerSelect" onchange="handleTimerSelect(this)" class="timer-select">
-                    <option value="0">⏱ Off</option>
-                    <option value="15">15min</option>
-                    <option value="30">30min</option>
-                    <option value="45">45min</option>
-                    <option value="60">1h</option>
-                    <option value="90">1h30</option>
-                    <option value="120">2h</option>
-                </select>
-                <span id="timerDisplay" style="display:none;"></span>
-            </div>
-
-            <button class="control-btn-small btn-oled" onclick="ativarModoEscuro()" title="Modo OLED — tela preta, economia de bateria">🌙 OLED</button>
-
-            <button class="control-btn-small" onclick="document.getElementById('apiKeyChangeModal').style.display='flex'" title="Configurar API Key do YouTube">
-                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>
-                API Key
-            </button>
-        </div>
-
-        <!-- Countdown timer -->
-        <div id="timerCountdown" style="display:none; font-size:11px; color:var(--green); text-align:center; margin-top:8px; font-weight:700; letter-spacing:0.5px; font-family:var(--mono);"></div>
-
-    </div><!-- /player-controls-advanced -->
-
-
-    <!-- ═══ AÇÕES DA PLAYLIST (3 zonas) ═══ -->
-    <div class="playlist-zone">
-
-        <!-- Zona 1: reprodução -->
-        <div class="zone-play">
-            <button id="playAllBtn" class="btn-play-all">▶ Reproduzir tudo</button>
-            <button id="playSelectedBtn" class="btn-play-selected">▶ Reproduzir Selecionados</button>
-        </div>
-
-        <hr class="grad-divider">
-
-        <!-- Zona 2: seleção -->
-        <div class="zone-select">
-            <button id="selectAllBtn" class="btn-select-all">☑ Selecionar Todos</button>
-        </div>
-
-        <hr class="grad-divider">
-
-        <!-- Zona 3: perigo — ações destrutivas -->
-        <div class="zone-danger">
-            <div class="zone-danger-label">⚠ zona de risco</div>
-            <button id="deleteSelectedBtn" class="btn-delete-selected">🗑 Apagar Selecionados</button>
-            <button id="confirmClearBtn" class="btn-clear-all">✕ Apagar Tudo</button>
-        </div>
-
-    </div><!-- /playlist-zone -->
-
-    <hr class="grad-divider">
-
-    <!-- ═══ UTILIDADES ═══ -->
-    <div class="utility-section">
-        <button id="installAppBtn" class="btn-install-pwa" style="display:none;">
-            📲 Instalar iList como App
-        </button>
-
-        <div class="utility-label">💾 Backup</div>
-        <div class="backup-row">
-            <button id="exportBackupBtn" class="btn-backup" style="background:var(--green); color:#fff;">
-                📤 Exportar
-            </button>
-            <button id="importBackupBtn" class="btn-backup" style="background:#3b82f6; color:#fff;">
-                📥 Importar
-            </button>
-        </div>
-    </div>
-
-    <hr class="grad-divider">
-
-    <!-- ═══ RODAPÉ ═══ -->
-    <div class="app-footer">
-        <span class="copy">
-            © 2026 iList &nbsp;·&nbsp;
-            <strong>Alexandre Torres</strong><br>
-            <span class="copy-accent">@aletordev</span>
-        </span>
-        <button id="instagramFollowBtn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF66CC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
-            @aletordev
-        </button>
-    </div>
-
-</div><!-- /box -->
-
-
-<!-- ═══════════════════════════════════
-     SIDEBAR: PLAYLIST
-═══════════════════════════════════ -->
-<div class="playlist">
-
-    <!-- Filtro de categorias -->
-    <div class="category-filters" id="categoryFilters"></div>
-
-    <hr class="grad-divider">
-
-    <!-- Container dos itens (app.js renderiza aqui) -->
-    <div id="playlistContainer">
-        <!-- Estado vazio — mostrado até app.js popular -->
-        <div class="playlist-empty-state" id="emptyState">
-            <span class="empty-icon">🎬</span>
-            <span class="empty-title">Sua lista está vazia</span>
-            <span class="empty-hint">Cole um link do YouTube no campo ao lado e pressione <strong>Enter</strong> para começar.</span>
-        </div>
-    </div>
-
-    <hr class="grad-divider">
-
-    <!-- Controles da sidebar (mantidos para compatibilidade com app.js) -->
-    <div class="playlist-controls" style="display:none;" id="sidebarControls">
-        <button id="sidebarPlayAllBtn">▶ Reproduzir tudo</button>
-        <button id="sidebarSelectAllBtn">☑ Selecionar Todos</button>
-    </div>
-
-</div><!-- /playlist -->
-
-
-<!-- ═══════════════════════════════════
-     OVERLAYS & MODAIS GLOBAIS
-═══════════════════════════════════ -->
-
-<!-- Dark Mode Overlay -->
-<div id="darkOverlay">
-    <div id="lamp">💡</div>
-    <span id="turnOn">acender a luz</span>
+  </main>
 </div>
 
+<!-- BOTTOM NAV mobile -->
+<nav class="bottom-nav">
+  <div class="bn-item active" id="bn-home" onclick="navigate('home',null,'bn-home')">
+    <span class="bn-icon">🏠</span><span class="bn-label">Início</span>
+  </div>
+  <div class="bn-item" id="bn-formatar" onclick="navigate('formatar',null,'bn-formatar')">
+    <span class="bn-icon">✦</span><span class="bn-label">Formatar</span>
+  </div>
+  <div class="bn-item" id="bn-curriculo" onclick="navigate('curriculo',null,'bn-curriculo')">
+    <span class="bn-icon">📄</span><span class="bn-label">Currículo</span>
+  </div>
+  <div class="bn-item" id="bn-email" onclick="navigate('email',null,'bn-email')">
+    <span class="bn-icon">📧</span><span class="bn-label">E-mail</span>
+  </div>
+</nav>
 
-<!-- Modal: API Key -->
-<div id="apiKeyChangeModal"
-     onclick="if(event.target===this)this.style.display='none'"
-     style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:10100; align-items:center; justify-content:center; backdrop-filter:blur(6px);">
-    <div onclick="event.stopPropagation()"
-         style="background:#0d1b2a; border:1px solid rgba(255,153,0,0.15); border-radius:18px; padding:28px; width:90%; max-width:400px; box-shadow:0 24px 64px rgba(0,0,0,0.7); position:relative; overflow:hidden;">
-        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#06b6d4,#FF9900,#ef4444);"></div>
-        <h3 style="margin:0 0 6px; color:#fff; font-size:17px; font-weight:800; font-family:'Syne',sans-serif; display:flex; align-items:center; gap:8px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF9900" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="M21 2l-9.6 9.6"/><path d="M15.5 7.5l3 3L22 7l-3-3"/></svg>
-            API Key do YouTube
-        </h3>
-        <p style="font-size:12px; color:#64748b; margin:0 0 16px; font-family:'JetBrains Mono',monospace; line-height:1.6;">Necessária para buscar vídeos por canal. <a href="#" style="color:#FF9900; text-decoration:none;">Ver tutorial →</a></p>
-        <input id="apiKeyChangeInput" type="password"
-               placeholder="Cole sua API Key aqui..."
-               autocomplete="new-password"
-               style="width:100%; box-sizing:border-box; background:#060B14; border:1.5px solid #1e293b; border-radius:8px; color:#f1f5f9; font-size:14px; font-family:'Syne',sans-serif; padding:12px 14px; outline:none; margin-bottom:14px; transition:border-color 0.2s;">
-        <div style="display:flex; gap:8px;">
-            <button id="apiKeyChangeOkBtn"
-                    style="flex:1; background:linear-gradient(135deg,#FF9900,#f59e0b); color:#000; border:none; border-radius:8px; padding:12px; font-size:14px; font-weight:800; font-family:'Syne',sans-serif; cursor:pointer; margin-left:0;">
-                ✓ Salvar
-            </button>
-            <button onclick="document.getElementById('apiKeyChangeModal').style.display='none'"
-                    style="flex:1; background:#1e293b; color:#94a3b8; border:1px solid rgba(255,255,255,0.07); border-radius:8px; padding:12px; font-size:14px; font-family:'Syne',sans-serif; cursor:pointer; margin-left:0;">
-                Cancelar
-            </button>
-        </div>
-        <div id="apiKeyChangeMsg" style="display:none; margin-top:10px; font-size:12px; color:#10b981; text-align:center; font-family:'JetBrains Mono',monospace;">✅ Chave salva com sucesso!</div>
-    </div>
-</div>
+<!-- ═══ APP SCRIPT ══════════════════════════════════════════════════ -->
+<script src="script.js"></script>
 
-
-<!-- ═══════════════════════════════════
-     SCRIPTS
-═══════════════════════════════════ -->
-<script src="assets/js/categories.js"></script>
-<script src="assets/js/app.js"></script>
-<script src="assets/js/player.js"></script>
-<script src="assets/js/ad-blocker.js"></script>
-<script src="assets/js/pwa.js"></script>
-<script src="assets/js/search-advanced.js"></script>
-<script src="assets/js/backup.js"></script>
-<script src="assets/js/sidebar.js"></script>
-<script src="assets/js/equalizer.js"></script>
-
+<!-- ═══ PWA — Service Worker + Install Prompt ══════════════════════ -->
 <script>
-    /* Fechar modal ao clicar fora */
-    function closeModalOnOutsideClick(event, modalId) {
-        if (event.target.id === modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-    }
+/* ════════════════════════════════════════════
+   PWA CONTROLLER — DocForm
+   Fonte única de verdade para tudo PWA.
+   O initPWA() no script.js foi esvaziado para
+   evitar duplicação. Toda a lógica vive aqui.
+════════════════════════════════════════════ */
+(function () {
+  'use strict';
 
-    /* Esconder empty state quando há itens na playlist */
-    function syncEmptyState() {
-        const container = document.getElementById('playlistContainer');
-        const empty = document.getElementById('emptyState');
-        if (!container || !empty) return;
-        const hasItems = container.querySelectorAll('.playlist-item').length > 0;
-        empty.style.display = hasItems ? 'none' : 'flex';
-    }
+  /* ── Referências DOM ── */
+  function $id(id) { return document.getElementById(id); }
+  const BANNER_KEY  = 'docform-pwa-dismissed-until';  // localStorage key
+  const SNOOZE_DAYS = 3;  // volta a mostrar após N dias se o usuário dismissar
 
-    /* Observar mudanças na playlist para atualizar empty state */
-    document.addEventListener('DOMContentLoaded', function () {
-
-        /* API Key modal */
-        document.getElementById('apiKeyChangeOkBtn').addEventListener('click', function () {
-            const input = document.getElementById('apiKeyChangeInput');
-            const msg   = document.getElementById('apiKeyChangeMsg');
-            const key   = input.value.trim();
-            if (!key) { input.style.borderColor = '#ef4444'; return; }
-            localStorage.setItem('youtube_api_key', key);
-            input.value = '';
-            input.style.borderColor = '#10b981';
-            msg.style.display = 'block';
-            setTimeout(function () {
-                document.getElementById('apiKeyChangeModal').style.display = 'none';
-                msg.style.display = 'none';
-                input.style.borderColor = '#1e293b';
-            }, 1500);
-        });
-
-        document.getElementById('apiKeyChangeInput').addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') document.getElementById('apiKeyChangeOkBtn').click();
-        });
-
-        /* Observar playlistContainer */
-        const container = document.getElementById('playlistContainer');
-        if (container) {
-            const mo = new MutationObserver(syncEmptyState);
-            mo.observe(container, { childList: true, subtree: true });
-            syncEmptyState();
-        }
+  /* ══════════════════════════════════════════
+     1. SERVICE WORKER
+  ══════════════════════════════════════════ */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js', { scope: './' })
+        .then(reg => {
+          reg.addEventListener('updatefound', () => {
+            const w = reg.installing;
+            if (!w) return;
+            w.addEventListener('statechange', () => {
+              if (w.state === 'installed' && navigator.serviceWorker.controller) {
+                showToast('🔄 Nova versão disponível — recarregue para atualizar', '');
+              }
+            });
+          });
+        })
+        .catch(e => console.warn('[SW]', e));
     });
-</script>
-<script src="assets/js/input-patch.js"></script>
-<script src="assets/js/onboarding.js"></script>
-<div id="offlineBanner" style="display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#f85149; color:white; padding:10px 20px; border-radius:30px; z-index:9999; font-family:sans-serif; align-items:center; gap:10px; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
-  <span>🔴 Você está offline</span>
-  <small>| Seus dados estão salvos</small>
-</div>
+  }
 
-<script>
-  // Lógica do Banner (Simples e direta)
-  window.addEventListener('offline', () => {
-    document.getElementById('offlineBanner').style.display = 'flex';
-  });
-  window.addEventListener('online', () => {
-    document.getElementById('offlineBanner').style.display = 'none';
-  });
-</script>
+  /* ══════════════════════════════════════════
+     2. OFFLINE / ONLINE BAR
+  ══════════════════════════════════════════ */
+  function syncOfflineBar() {
+    const bar = $id('offline-bar');
+    if (!bar) return;
+    const offline = !navigator.onLine;
+    bar.style.display = offline ? 'flex' : 'none';
+    document.body.classList.toggle('is-offline', offline);
+  }
+  window.addEventListener('online',  syncOfflineBar);
+  window.addEventListener('offline', syncOfflineBar);
+  window.addEventListener('load',    syncOfflineBar);
 
+  /* ══════════════════════════════════════════
+     3. DEEP-LINK  ?page=
+  ══════════════════════════════════════════ */
+  const _pg = new URLSearchParams(location.search).get('page');
+  if (_pg && ['formatar','curriculo','email'].includes(_pg)) {
+    window.addEventListener('DOMContentLoaded', () => {
+      if (typeof navigate === 'function') navigate(_pg);
+    });
+  }
+
+  /* ══════════════════════════════════════════
+     4. STANDALONE BADGE
+  ══════════════════════════════════════════ */
+  function applyBadge(isApp) {
+    const b = $id('pwa-status-badge');
+    if (!b) return;
+    b.textContent = isApp ? '📲 App' : 'v 1.0';
+    b.title       = isApp ? 'Rodando como app instalado' : '';
+  }
+  const _mq = window.matchMedia('(display-mode: standalone)');
+  window.addEventListener('DOMContentLoaded', () =>
+    applyBadge(_mq.matches || navigator.standalone === true));
+  _mq.addEventListener('change', e => applyBadge(e.matches));
+
+  /* ══════════════════════════════════════════
+     5. INSTALL PROMPT — lógica principal
+     
+     Regras:
+     • Banner aparece SEMPRE que beforeinstallprompt dispara
+     • A única exceção: se o usuário clicou "Agora não"
+       → snooze de SNOOZE_DAYS dias (não a sessão inteira)
+     • Após SNOOZE_DAYS dias, volta a mostrar normalmente
+     • Se o app já está instalado (standalone), esconde e
+       nunca mais mostra
+  ══════════════════════════════════════════ */
+  let _prompt = null;
+
+  function _isSnoozed() {
+    try {
+      const until = parseInt(localStorage.getItem(BANNER_KEY) || '0', 10);
+      return Date.now() < until;
+    } catch { return false; }
+  }
+
+  function _isInstalled() {
+    return window.matchMedia('(display-mode: standalone)').matches
+      || navigator.standalone === true;
+  }
+
+  function _showBanner() {
+    if (_isInstalled()) return;   // já instalado, não mostra
+    if (_isSnoozed())  return;    // usuário pediu para não mostrar por N dias
+    const b = $id('pwa-banner');
+    if (b) b.style.display = 'flex';
+  }
+
+  /* Captura o evento do browser (Chrome/Edge/Android) */
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    _prompt = e;
+    // Mostra após 2s para não sobrepor o carregamento inicial
+    setTimeout(_showBanner, 2000);
+  });
+
+  /* Botão "Instalar" */
+  window.pwaInstall = async function () {
+    const b = $id('pwa-banner');
+    if (b) b.style.display = 'none';
+    if (!_prompt) return;
+    _prompt.prompt();
+    const { outcome } = await _prompt.userChoice;
+    _prompt = null;
+    if (outcome === 'accepted') {
+      showToast('✅ DocForm instalado com sucesso!', 'ok');
+      applyBadge(true);
+    }
+  };
+
+  /* Botão "Agora não" — snooze de N dias */
+  window.pwaDismiss = function () {
+    const b = $id('pwa-banner');
+    if (b) b.style.display = 'none';
+    try {
+      const until = Date.now() + (SNOOZE_DAYS * 24 * 60 * 60 * 1000);
+      localStorage.setItem(BANNER_KEY, String(until));
+    } catch { /* localStorage bloqueado (modo privado) — ignora silenciosamente */ }
+  };
+
+  /* Após instalação confirmada pelo browser */
+  window.addEventListener('appinstalled', () => {
+    const b = $id('pwa-banner');
+    if (b) b.style.display = 'none';
+    applyBadge(true);
+    showToast('📲 DocForm instalado!', 'ok');
+  });
+
+})();
+</script>
 </body>
 </html>
